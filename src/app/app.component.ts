@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {NAV_BAR_ENTRIES} from "./departments";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  entries = NAV_BAR_ENTRIES;
 }
