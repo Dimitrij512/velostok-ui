@@ -8,6 +8,7 @@ import {FormsModule} from "@angular/forms";
 import {RoutingModule} from "./routing/routing.module";
 import { HomePageComponent } from './home-page/home-page.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {CartIconComponent} from "./cart-icon/cart-icon.component";
 import {
   MatBadgeModule,
   MatButtonModule,
@@ -18,11 +19,14 @@ import {
 } from "@angular/material";
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomePageComponent
+    HomePageComponent,
+    CartIconComponent
   ],
   imports: [
     FormsModule,
