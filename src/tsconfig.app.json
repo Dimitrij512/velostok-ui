@@ -6,6 +6,11 @@
     "module": "es2015",
     "types": []
   },
+  "compilerOptions": {
+    "types": [
+      "hammerjs"
+    ]
+  },
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
