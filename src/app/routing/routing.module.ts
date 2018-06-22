@@ -6,9 +6,8 @@ import {HomePageComponent} from "../home-page/home-page.component";
 
 
 const appRoutes = [
-  {path: "", component: AppComponent},
+  {path: "", component: HomePageComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'home', component: HomePageComponent}
 ];
 
 @NgModule({
