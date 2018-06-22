@@ -11,22 +11,19 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CartIconComponent} from "./cart-icon/cart-icon.component";
 import {
   MatBadgeModule,
-  MatButtonModule,
+  MatButtonModule, MatCardModule,
   MatIconModule,
   MatListModule,
   MatMenuModule, MatSidenavModule,
   MatToolbarModule
 } from "@angular/material";
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomePageComponent,
-    CartIconComponent
+    CartIconComponent,
   ],
   imports: [
     FormsModule,
@@ -40,6 +37,7 @@ import {
     MatMenuModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
