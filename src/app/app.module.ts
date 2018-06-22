@@ -17,7 +17,6 @@ import {
   MatMenuModule, MatSidenavModule,
   MatToolbarModule
 } from "@angular/material";
-import { DepartmentComponent } from './department/department.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import { DepartmentComponent } from './department/department.component';
     LoginComponent,
     HomePageComponent,
     CartIconComponent,
-    DepartmentComponent
   ],
   imports: [
     FormsModule,
