@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject, BehaviorSubject } from 'rxjs';
 import {Item} from "../item";
+import {HttpClient} from "@angular/common/http";
+import {BASEURL} from "../constants/projectsConstants";
 
 export interface CartEntry {
   item: Item;
@@ -13,12 +15,15 @@ const CART_KEY = "CART_KEY";
   providedIn: 'root'
 })
 export class ShoppingCartService {
+  baseUrl : string;
   private entries: { [name: string]: CartEntry } = {};
 
   /** Observable for current number of items in the cart */
   onChanged: Subject<number>;
 
-  constructor() {
+  constructor(private http: HttpClient) {
+    this.baseUrl = BASEURL + 'client/project';
+
     // Get the initial value from localStorage.
     const storedValue = window.localStorage.getItem(CART_KEY);
     if (storedValue) {
