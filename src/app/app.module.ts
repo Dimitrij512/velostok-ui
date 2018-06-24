@@ -16,9 +16,11 @@ import {
   MatButtonModule, MatCardModule,
   MatIconModule,
   MatListModule,
-  MatMenuModule, MatSidenavModule,
+  MatMenuModule, MatPaginatorModule, MatSidenavModule, MatTableModule,
   MatToolbarModule
 } from "@angular/material";
+import { ManageCategoryComponent } from './manage-category/manage-category.component';
+import { ManageProductComponent } from './manage-product/manage-product.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import {
     LoginComponent,
     HomePageComponent,
     CartIconComponent,
+    ManageCategoryComponent,
+    ManageProductComponent,
   ],
   imports: [
     FormsModule,
@@ -41,7 +45,9 @@ import {
     MatMenuModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
