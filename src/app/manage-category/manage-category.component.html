@@ -1,0 +1,31 @@
+<mat-card>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Назва</th>
+        <td mat-cell *matCellDef="let element"> {{element.name}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Опис</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef> Зображення</th>
+        <td mat-cell *matCellDef="let element"> {{element.image}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+    <mat-paginator class="admin-table-paginator" #paginator
+                   [length]="length"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="pageSizeOptions">
+    </mat-paginator>
+  </div>
+</mat-card>
