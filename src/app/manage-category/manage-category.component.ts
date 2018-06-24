@@ -27,11 +27,8 @@ export class ManageCategoryComponent implements OnInit {
   ngOnInit() {}
 
   public dataHandler(categories: any) {
-    console.log(categories);
     this.categories = categories as Array<Category>;
     this.dataSource = new MatTableDataSource(this.categories);
-
-    console.log(this.dataSource);
 
     this.dataSource.paginator = this.paginator;
     this.paginator._intl.itemsPerPageLabel = 'Кількість елементів на сторінці';
