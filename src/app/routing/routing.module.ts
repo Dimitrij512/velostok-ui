@@ -1,6 +1,8 @@
 import {Routes,RouterModule} from "@angular/router";
 import {NgModule} from "@angular/core";
 import {HomePageComponent} from "../home-page/home-page.component";
+import {ManageCategoryComponent} from "../manage-category/manage-category.component";
+import {ManageProductComponent} from "../manage-product/manage-product.component";
 
 
 const routes: Routes = [
@@ -28,6 +30,14 @@ const routes: Routes = [
     path: 'ladies_tshirts',
     loadChildren: '../department/department.module#DepartmentModule',
     data: { title: 'Ladies T-Shirts', url: '/assets/json/ladies_tshirts.json' }
+  },
+  {
+    path: 'manage-category',
+    component: ManageCategoryComponent,
+  },
+  {
+    path: 'manage-product',
+    component: ManageProductComponent,
   },
 ];
 
