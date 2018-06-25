@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RoutingModule} from "./routing/routing.module";
 import {HomePageComponent} from './home-page/home-page.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -13,14 +13,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http'
 import {
   MatBadgeModule,
-  MatButtonModule, MatCardModule,
+  MatButtonModule,
+  MatCardModule,
+  MatDialog,
+  MatDialogModule,
+  MatFormFieldModule,
   MatIconModule,
+  MatInputModule,
   MatListModule,
-  MatMenuModule, MatPaginatorModule, MatSidenavModule, MatTableModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSnackBarModule,
+  MatTableModule,
+  MatTextareaAutosize,
   MatToolbarModule
 } from "@angular/material";
 import { ManageCategoryComponent } from './manage-category/manage-category.component';
 import { ManageProductComponent } from './manage-product/manage-product.component';
+import { DialogAdminCategoryComponent } from './dialog-admin-category/dialog-admin-category.component';
 
 @NgModule({
   declarations: [
@@ -30,9 +42,12 @@ import { ManageProductComponent } from './manage-product/manage-product.componen
     CartIconComponent,
     ManageCategoryComponent,
     ManageProductComponent,
+    DialogAdminCategoryComponent,
   ],
+  entryComponents: [DialogAdminCategoryComponent],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     HttpModule,
     BrowserModule,
@@ -47,7 +62,12 @@ import { ManageProductComponent } from './manage-product/manage-product.componen
     MatToolbarModule,
     MatCardModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

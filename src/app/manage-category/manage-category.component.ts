@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatDialog, MatPaginator, MatTableDataSource} from '@angular/material';
 import {CategoryService} from "../services/category-service";
 import {Category} from "../models/Category";
+import {DialogAdminCategoryComponent} from "../dialog-admin-category/dialog-admin-category.component";
 
 @Component({
   selector: 'app-manage-category',
@@ -20,7 +21,7 @@ export class ManageCategoryComponent implements OnInit {
   pageSize: Number;
   length:Number;
 
-  constructor(public categoryService: CategoryService,) {
+  constructor(public categoryService: CategoryService, public dialog: MatDialog, public dialogConfirm: MatDialog) {
     categoryService.getAllCategories().subscribe(data => this.dataHandler(data), this.searchErrorHandler);
   }
 
@@ -38,6 +39,21 @@ export class ManageCategoryComponent implements OnInit {
     this.length = this.categories.length;
 
   }
+
+  openDialogUser() {
+    const dialogRef = this.dialog.open(DialogAdminCategoryComponent, {
+      data: new Category(),
+      minHeight: '30%',
+      minWidth: '40%'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== undefined) {
+        this.categories.push(result);
+        this.dataHandler(this.categories.reverse());
+      }
+    });
+  };
 
   public searchErrorHandler(error: any) {
     alert("Вході виконання програми виникла помилка, спробуйте пізніше. Тип помилки : " + error);
