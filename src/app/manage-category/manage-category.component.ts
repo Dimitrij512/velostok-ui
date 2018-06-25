@@ -42,7 +42,7 @@ export class ManageCategoryComponent implements OnInit {
 
   }
 
-  openDialogUser() {
+  createCategory() {
     const dialogRef = this.dialog.open(DialogAdminCategoryComponent, {
       data: new Category(),
       minHeight: '30%',
@@ -56,6 +56,24 @@ export class ManageCategoryComponent implements OnInit {
       }
     });
   };
+
+  updateCategory(row) {
+    const dialogRef = this.dialog.open(DialogAdminCategoryComponent, {
+      data: row,
+      minHeight: '30%',
+      minWidth: '40%'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== undefined) {
+        let index = this.categories.findIndex(category => category.id == result.id);
+        this.categories.splice(index, 1);
+        this.categories.splice(index, 0, result);
+        this.dataHandler(this.categories);
+      }
+    });
+  }
+
+
 
   openDialogConfirmRemove(row): void {
     let dialogRef = this.dialogConfirm.open(DialogConfirmDeleteComponent, {
