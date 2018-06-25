@@ -19,8 +19,15 @@ export class CategoryService {
   }
 
   createCategory(category: Category): Observable<any> {
-
     return this.http.post(BASEURL + "/admin/category", category);
+  }
+
+  deleteCategory(id : String){
+    this.http.delete(BASEURL + "/admin/category/" + id).toPromise().catch(this.handleHttpError);;
+  }
+
+  private handleHttpError(error: any) {
+    alert("Щось пішло не так, спробуйте ще раз або зверніться до адміністратора. Помилка : " + error);
   }
 
 }

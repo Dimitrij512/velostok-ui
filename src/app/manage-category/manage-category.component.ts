@@ -3,6 +3,7 @@ import {MatDialog, MatPaginator, MatTableDataSource} from '@angular/material';
 import {CategoryService} from "../services/category-service";
 import {Category} from "../models/Category";
 import {DialogAdminCategoryComponent} from "../dialog-admin-category/dialog-admin-category.component";
+import {DialogConfirmDeleteComponent} from "../dialog-confirm-delete/dialog-confirm-delete.component";
 
 @Component({
   selector: 'app-manage-category',
@@ -14,12 +15,13 @@ export class ManageCategoryComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns = ['name', 'description', 'image'];
+  displayedColumns = ['name', 'description', 'image', 'edit', 'delete'];
   categories: Array<Category>;
   dataSource: any;
   pageSizeOptions = [5, 10, 25, 50];
   pageSize: Number;
   length:Number;
+  positionTollTip = "above";
 
   constructor(public categoryService: CategoryService, public dialog: MatDialog, public dialogConfirm: MatDialog) {
     categoryService.getAllCategories().subscribe(data => this.dataHandler(data), this.searchErrorHandler);
@@ -55,8 +57,32 @@ export class ManageCategoryComponent implements OnInit {
     });
   };
 
+  openDialogConfirmRemove(row): void {
+    let dialogRef = this.dialogConfirm.open(DialogConfirmDeleteComponent, {
+      width: '500px',
+      minWidth:'500px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      result == 'confirm' ? this.deleteCategory(row) : 'doNothing';
+    });
+  }
+
+  deleteCategory(row) {
+    console.log(row);
+    for (let curCategory = 0; curCategory < this.categories.length; curCategory++) {
+      if (row.id === this.categories[curCategory].id) {
+        this.categories.splice(curCategory, 1);
+      }
+    }
+
+    this.categoryService.deleteCategory(row.id);
+    this.dataHandler(this.categories);
+  }
+
   public searchErrorHandler(error: any) {
-    alert("Вході виконання програми виникла помилка, спробуйте пізніше. Тип помилки : " + error);
+    alert("Вході виконання програми виникла помилка, спробуйте пізніше");
   }
 
 }

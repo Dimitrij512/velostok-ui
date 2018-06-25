@@ -28,11 +28,12 @@ import {
   MatSnackBarModule,
   MatTableModule,
   MatTextareaAutosize,
-  MatToolbarModule
+  MatToolbarModule, MatTooltip, MatTooltipModule
 } from "@angular/material";
 import { ManageCategoryComponent } from './manage-category/manage-category.component';
 import { ManageProductComponent } from './manage-product/manage-product.component';
 import { DialogAdminCategoryComponent } from './dialog-admin-category/dialog-admin-category.component';
+import { DialogConfirmDeleteComponent } from './dialog-confirm-delete/dialog-confirm-delete.component';
 
 @NgModule({
   declarations: [
@@ -43,8 +44,9 @@ import { DialogAdminCategoryComponent } from './dialog-admin-category/dialog-adm
     ManageCategoryComponent,
     ManageProductComponent,
     DialogAdminCategoryComponent,
+    DialogConfirmDeleteComponent,
   ],
-  entryComponents: [DialogAdminCategoryComponent],
+  entryComponents: [DialogAdminCategoryComponent,DialogConfirmDeleteComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,
@@ -68,6 +70,7 @@ import { DialogAdminCategoryComponent } from './dialog-admin-category/dialog-adm
     MatSelectModule,
     MatInputModule,
     MatSnackBarModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
