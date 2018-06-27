@@ -35,8 +35,6 @@ export class DialogAdminCategoryComponent implements OnInit {
   submitCategoryForm() {
     let field = this.categoryForm.value;
 
-    console.log(field);
-
     let category = new Category();
     category.id = this.data.id;
     category.name = field.name;

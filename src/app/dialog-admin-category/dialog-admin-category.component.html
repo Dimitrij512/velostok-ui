@@ -11,6 +11,6 @@
     <mat-form-field>
       <input matInput placeholder="Зображення" formControlName="image" required>
     </mat-form-field>
-    <button class="" mat-raised-button color="primary">Зберегти дані</button>
+    <button [disabled]="!categoryForm.valid" class="" mat-raised-button color="primary">Зберегти дані</button>
   </div>
 </form>

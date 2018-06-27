@@ -1,5 +1,28 @@
 
 table {
   width: 100%;
-  margin-top: 10px;
+  min-width: 662px;
+  cursor: pointer;
 }
+
+.card-table-category {
+  min-width: 662px;
+}
+
+.above-table {
+  background-color: rgba(255, 255, 255, 0.8);
+  min-height: 64px;
+}
+
+.input-filter{
+  width: 20%;
+}
+
+.button-add {
+  float:right;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+

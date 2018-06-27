@@ -25,7 +25,7 @@ import {
   MatPaginatorModule,
   MatSelectModule,
   MatSidenavModule,
-  MatSnackBarModule,
+  MatSnackBarModule, MatSortModule,
   MatTableModule,
   MatTextareaAutosize,
   MatToolbarModule, MatTooltip, MatTooltipModule
@@ -64,6 +64,7 @@ import { DialogConfirmDeleteComponent } from './dialog-confirm-delete/dialog-con
     MatToolbarModule,
     MatCardModule,
     MatTableModule,
+    MatSortModule,
     MatPaginatorModule,
     MatDialogModule,
     MatFormFieldModule,
