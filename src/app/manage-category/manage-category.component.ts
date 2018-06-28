@@ -76,8 +76,6 @@ export class ManageCategoryComponent implements OnInit {
     });
   }
 
-
-
   openDialogConfirmRemove(row): void {
     let dialogRef = this.dialogConfirm.open(DialogConfirmDeleteComponent, {
       width: '500px',
