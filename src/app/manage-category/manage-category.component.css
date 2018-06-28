@@ -14,12 +14,13 @@ table {
   min-height: 64px;
 }
 
-.input-filter{
+.input-filter {
+  display: inline-block;
   width: 20%;
 }
 
 .button-add {
-  float:right;
+  float: right;
 }
 
 th.mat-sort-header-sorted {
