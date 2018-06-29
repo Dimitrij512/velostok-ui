@@ -5,6 +5,7 @@ import {Category} from "../models/Category";
 import {Product} from "../models/Product";
 import {ProductService} from "../services/product-service";
 import {DialogConfirmDeleteComponent} from "../dialog-confirm-delete/dialog-confirm-delete.component";
+import {DialogAdminProductComponent} from "../dialog-admin-product/dialog-admin-product.component";
 
 @Component({
   selector: 'app-manage-product',
@@ -47,7 +48,7 @@ export class ManageProductComponent implements OnInit {
   }
 
   createProduct() {
-    const dialogRef = this.dialog.open(DialogAdminCategoryComponent, {
+    const dialogRef = this.dialog.open(DialogAdminProductComponent, {
       data: new Category(),
       minHeight: '30%',
       minWidth: '40%'
@@ -62,7 +63,7 @@ export class ManageProductComponent implements OnInit {
   };
 
   updateProduct(row) {
-    const dialogRef = this.dialog.open(DialogAdminCategoryComponent, {
+    const dialogRef = this.dialog.open(DialogAdminProductComponent, {
       data: row,
       minHeight: '30%',
       minWidth: '40%'
