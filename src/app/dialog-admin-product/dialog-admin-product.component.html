@@ -1,0 +1,32 @@
+<form [formGroup]="productForm" (ngSubmit)="submitProductForm()" novalidate>
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Назва" formControlName="name" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Title" formControlName="title" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Категорія" formControlName="category" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Ціна" formControlName="price" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Опис" formControlName="description" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Зображення" formControlName="image" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Зображення мале" formControlName="largeImage" required>
+    </mat-form-field>
+    <button [disabled]="!productForm.valid" class="" mat-raised-button color="primary">Зберегти дані</button>
+  </div>
+</form>
