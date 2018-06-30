@@ -21,7 +21,11 @@ export class ProductService {
     return this.http.get(BASEURL + "/allCategories");
   }
 
-  findAllProductByCategoryName (categoryName : string) {
+  findOneById(productId: string) {
+    return this.http.get(BASEURL + "/product/" + productId);
+  }
+
+  findAllProductByCategoryName(categoryName: string) {
     return this.http.get(BASEURL + "/products/" + categoryName);
   }
 
