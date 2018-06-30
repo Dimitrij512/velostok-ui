@@ -19,6 +19,12 @@ table {
   width: 20%;
 }
 
+.select-category {
+  display: inline-block;
+  width: 30%;
+  padding-left: 10%;
+}
+
 .button-add {
   float: right;
 }

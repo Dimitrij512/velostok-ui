@@ -17,6 +17,14 @@ export class ProductService {
     return this.http.get(BASEURL + "/allProducts");
   }
 
+  getAllCategories() {
+    return this.http.get(BASEURL + "/allCategories");
+  }
+
+  findAllProductByCategoryName (categoryName : string) {
+    return this.http.get(BASEURL + "/products/" + categoryName);
+  }
+
   createProduct(product: Product): Observable<any> {
     return this.http.post(BASEURL + "/admin/product", product);
   }

@@ -20,11 +20,13 @@ export class ManageProductComponent implements OnInit {
 
   displayedColumns = ['name', 'title', 'category', 'price', 'description', 'image', 'largeImage', 'edit', 'delete'];
   products: Array<Product>;
+  categories: Array<Category>;
   dataSource: any;
   pageSizeOptions = [5, 10, 25, 50];
   pageSize: Number;
-  length:Number;
+  length: Number;
   positionTollTip = "above";
+  selectedValue: string;
 
   constructor(public productService: ProductService, public dialog: MatDialog, public dialogConfirm: MatDialog) {
 
@@ -32,6 +34,12 @@ export class ManageProductComponent implements OnInit {
 
   ngOnInit() {
     this.productService.getAllProducts().subscribe(data => this.dataHandler(data), this.searchErrorHandler);
+    this.productService.getAllCategories().subscribe(data => this.categories = data as Array<Category>, this.searchErrorHandler);
+  }
+
+  public findAllProductsByCategryName() {
+    console.log(this.selectedValue);
+    this.productService.findAllProductByCategoryName(this.selectedValue).subscribe(data => this.dataHandler(data), this.searchErrorHandler);
   }
 
   public dataHandler(categories: any) {
@@ -81,7 +89,7 @@ export class ManageProductComponent implements OnInit {
   openDialogConfirmRemove(row): void {
     let dialogRef = this.dialogConfirm.open(DialogConfirmDeleteComponent, {
       width: '500px',
-      minWidth:'500px'
+      minWidth: '500px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -107,6 +115,7 @@ export class ManageProductComponent implements OnInit {
   }
 
   public searchErrorHandler(error: any) {
+    console.log(error);
     alert("Вході виконання програми виникла помилка, спробуйте пізніше");
   }
 
