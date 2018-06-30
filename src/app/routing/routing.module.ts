@@ -3,6 +3,7 @@ import {NgModule} from "@angular/core";
 import {HomePageComponent} from "../home-page/home-page.component";
 import {ManageCategoryComponent} from "../manage-category/manage-category.component";
 import {ManageProductComponent} from "../manage-product/manage-product.component";
+import {BASEURL} from "../constants/projectsConstants";
 
 
 const routes: Routes = [
@@ -31,6 +32,12 @@ const routes: Routes = [
     loadChildren: '../department/department.module#DepartmentModule',
     data: { title: 'Ladies T-Shirts', url: '/assets/json/ladies_tshirts.json' }
   },
+  {
+    path: 'all_products',
+    loadChildren: '../department/department.module#DepartmentModule',
+    data: { title: 'Всі товари', url: BASEURL + '/allProducts' }
+  },
+
   {
     path: 'manage-category',
     component: ManageCategoryComponent,

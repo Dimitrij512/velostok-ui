@@ -35,3 +35,9 @@ mat-card-title {
   width: 200px;
   height: 200px;
 }
+
+img {
+  height: 180px;
+  width: 180px;
+  object-fit: contain;
+}
