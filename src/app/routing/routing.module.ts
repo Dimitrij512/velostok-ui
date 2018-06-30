@@ -39,6 +39,12 @@ const routes: Routes = [
   },
 
   {
+    path: 'product/:id',
+    loadChildren: '../product/product.module#ProductModule',
+    data: { title: 'Товар : ', url: BASEURL + '/product/' }
+  },
+
+  {
     path: 'manage-category',
     component: ManageCategoryComponent,
   },

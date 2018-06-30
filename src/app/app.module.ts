@@ -35,8 +35,6 @@ import { ManageProductComponent } from './manage-product/manage-product.componen
 import { DialogAdminCategoryComponent } from './dialog-admin-category/dialog-admin-category.component';
 import { DialogConfirmDeleteComponent } from './dialog-confirm-delete/dialog-confirm-delete.component';
 import { DialogAdminProductComponent } from './dialog-admin-product/dialog-admin-product.component';
-import { DepartmantProductsComponent } from './departmant-products/departmant-products.component';
-import { DepartmantCategoriesComponent } from './departmant-categories/departmant-categories.component';
 
 @NgModule({
   declarations: [
@@ -49,8 +47,6 @@ import { DepartmantCategoriesComponent } from './departmant-categories/departman
     DialogAdminCategoryComponent,
     DialogConfirmDeleteComponent,
     DialogAdminProductComponent,
-    DepartmantProductsComponent,
-    DepartmantCategoriesComponent,
   ],
   entryComponents: [DialogAdminCategoryComponent, DialogAdminProductComponent, DialogConfirmDeleteComponent],
   imports: [

@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
-import { switchMap, tap } from 'rxjs/operators';
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {ActivatedRoute, Router} from '@angular/router';
+import {switchMap, tap} from 'rxjs/operators';
 
-import { Item } from '../item';
-import { ShoppingCartService } from '../shopping-cart.service';
+import {Item} from '../item';
+import {ShoppingCartService} from '../shopping-cart.service';
 
 interface DepartmentData {
+  id: string,
   title: string;
   url: string;
 }
@@ -22,7 +23,9 @@ export class DepartmentComponent implements OnInit {
 
   constructor(private readonly route: ActivatedRoute,
               private readonly http: HttpClient,
-              private readonly cart: ShoppingCartService) { }
+              private readonly cart: ShoppingCartService,
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.route.data.pipe(
@@ -48,4 +51,9 @@ export class DepartmentComponent implements OnInit {
   addToCart(entry: Item) {
     this.cart.add(entry);
   }
+
+  getProduct(idProduct: string) {
+    this.router.navigate(["product", idProduct]);
+  }
+
 }
