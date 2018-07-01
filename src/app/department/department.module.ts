@@ -6,6 +6,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { DepartmentComponent } from './department.component';
 import { HttpClientModule } from '@angular/common/http';
 import {DepartmentRoutingModule} from "./department-routing";
+import {MatIconModule} from "@angular/material";
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import {DepartmentRoutingModule} from "./department-routing";
     HttpClientModule,
     DepartmentRoutingModule,
     MatButtonModule,
+    MatIconModule,
     MatCardModule,
     MatGridListModule,
   ],

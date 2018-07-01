@@ -76,7 +76,7 @@ import {MDBBootstrapModule, MDBModalRef, MDBRootModule} from "angular-bootstrap-
     MatSelectModule,
     MatInputModule,
     MatSnackBarModule,
-    MatTooltipModule,
+    MatTooltipModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [],

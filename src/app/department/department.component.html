@@ -44,9 +44,15 @@
               </a>
             </strong>
           </h5>
-          <h4 class="font-weight-bold blue-text">
+          <h5 class="font-weight-bold blue-text">
             <strong>{{entry.price}} грн.</strong>
-          </h4>
+          </h5>
+          <button mat-icon-button color="primary"
+                  class="centered"
+                  color="primary"
+                  (click)="addToCart(entry)">
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
         </div>
       </div>
     </div>
