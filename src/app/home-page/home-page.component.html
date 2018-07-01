@@ -1,7 +1,44 @@
-<div *ngFor = "let entry of entries" class="section">
+<!--<div *ngFor = "let entry of entries" class="section">
   <img id="img" [alt]="entry.name" [src]="entry.image" class="center img-header">
   <h2 style="text-align: center">{{entry.name}}</h2>
   <div style="text-align: center">
     <button mat-raised-button color="primary" [routerLink]="entry.path">Переглянути</button>
   </div>
 </div>
+<!--Carousel Wrapper-->
+<mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [type]="'carousel-thumbnails'" [animation]="'fade'">
+  <!--First slide-->
+  <mdb-slide>
+    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(88).jpg" alt="First slide">
+    <div class="carousel-caption">
+      <div class="animated fadeInDown">
+        <h3 class="h3-responsive">Light mask</h3>
+        <p>First text</p>
+      </div>
+    </div>
+  </mdb-slide>
+  <!--/First slide-->
+  <!--Second slide-->
+  <mdb-slide>
+    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(121).jpg" alt="Second slide">
+    <div class="carousel-caption">
+      <div class="animated fadeInDown">
+        <h3 class="h3-responsive">Light mask</h3>
+        <p>First text</p>
+      </div>
+    </div>
+  </mdb-slide>
+  <!--/Second slide-->
+  <!--Third slide-->
+  <mdb-slide>
+    <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(31).jpg" alt="Third slide">
+    <div class="carousel-caption">
+      <div class="animated fadeInDown">
+        <h3 class="h3-responsive">Light mask</h3>
+        <p>First text</p>
+      </div>
+    </div>
+  </mdb-slide>
+  <!--/Third slide-->
+</mdb-carousel>
+<!--/.Carousel Wrapper-->

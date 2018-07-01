@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 
 
 import {AppComponent} from './app.component';
@@ -35,8 +35,10 @@ import { ManageProductComponent } from './manage-product/manage-product.componen
 import { DialogAdminCategoryComponent } from './dialog-admin-category/dialog-admin-category.component';
 import { DialogConfirmDeleteComponent } from './dialog-confirm-delete/dialog-confirm-delete.component';
 import { DialogAdminProductComponent } from './dialog-admin-product/dialog-admin-product.component';
+import {MDBBootstrapModule, MDBModalRef, MDBRootModule} from "angular-bootstrap-md";
 
 @NgModule({
+
   declarations: [
     AppComponent,
     LoginComponent,
@@ -50,6 +52,7 @@ import { DialogAdminProductComponent } from './dialog-admin-product/dialog-admin
   ],
   entryComponents: [DialogAdminCategoryComponent, DialogAdminProductComponent, DialogConfirmDeleteComponent],
   imports: [
+    MDBBootstrapModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -75,6 +78,7 @@ import { DialogAdminProductComponent } from './dialog-admin-product/dialog-admin
     MatSnackBarModule,
     MatTooltipModule,
   ],
+  schemas: [ NO_ERRORS_SCHEMA ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -44,7 +44,7 @@ export class DepartmentComponent implements OnInit {
     if (str.length < 20) {
       return str;
     } else {
-      return str.substr(0, 17) + "...";
+      return str.substr(0, 12) + "...";
     }
   }
 

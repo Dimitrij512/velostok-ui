@@ -4,7 +4,8 @@
 <div class="header">
 
   <mat-card *ngFor="let entry of response" class="dept-card centered">
-<img class="fade" [src]="entry.image" [alt]="entry.title" width="100%" (click)="getProduct(entry.id)">
+    <img src={{entry.image}} class="img-fluid" (click)="getProduct(entry.id)">
+    <!--<img class="fade" src=entry.image [alt]="entry.title" width="100%" (click)="getProduct(entry.id)">-->
     <div style="font-weight: bold">{{truncate(entry.title)}}</div>
     <div class="sub">${{entry.price.toFixed(2)}}</div>
     <div>
