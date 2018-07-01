@@ -1,12 +1,23 @@
+.mat-table {
+  display: table;
+  width: 100%;}
 
-table {
-  width: 100%;
-  min-width: 662px;
-  cursor: pointer;
+ .mat-header-row, > .mat-row {
+  display: table-row;
+  padding: 0;
+  border: none;}
+
+  .mat-header-cell, > .mat-cell {
+  display: table-cell;
+  height: 48px;
+  vertical-align: middle;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
+
 .card-table-category {
-  min-width: 662px;
+  min-width: 700px !important;
 }
 
 .above-table {

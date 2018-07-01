@@ -1,3 +1,4 @@
+<!--
 <h2 class="header">{{title}}</h2>
 <div *ngIf="response" class="header sub">({{response.length}} екземплярів)</div>
 
@@ -5,7 +6,7 @@
 
   <mat-card *ngFor="let entry of response" class="dept-card centered">
     <img src={{entry.image}} class="img-fluid" (click)="getProduct(entry.id)">
-    <!--<img class="fade" src=entry.image [alt]="entry.title" width="100%" (click)="getProduct(entry.id)">-->
+    &lt;!&ndash;<img class="fade" src=entry.image [alt]="entry.title" width="100%" (click)="getProduct(entry.id)">&ndash;&gt;
     <div style="font-weight: bold">{{truncate(entry.title)}}</div>
     <div class="sub">${{entry.price.toFixed(2)}}</div>
     <div>
@@ -18,3 +19,37 @@
     </div>
   </mat-card>
 </div>
+-->
+<section class="text-center my-5">
+
+  <h2 class="h1-responsive font-weight-bold text-center my-5">Our bestsellers</h2>
+  <p class="grey-text text-center w-responsive mx-auto mb-5">Lorem Fugit, error amet numquam iure provident volueniam.</p>
+  <div class="row">
+    <div class="col-lg-3 col-md-6 mb-lg-0 mb-4 card-product" *ngFor="let entry of response">
+      <div class="card align-items-center">
+        <div class="view overlay" (click)="getProduct(entry.id)">
+          <img src={{entry.image}} class="card-img-top" alt="">
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+        <div class="card-body text-center">
+          <a href="" class="grey-text">
+            <h5>{{truncate(entry.title)}}</h5>
+          </a>
+          <h5>
+            <strong>
+              <a href="" class="dark-grey-text">{{truncate(entry.title)}}
+                <span class="badge badge-pill danger-color">NEW</span>
+              </a>
+            </strong>
+          </h5>
+          <h4 class="font-weight-bold blue-text">
+            <strong>{{entry.price}} грн.</strong>
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
