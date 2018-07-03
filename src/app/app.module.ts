@@ -35,7 +35,14 @@ import { ManageProductComponent } from './manage-product/manage-product.componen
 import { DialogAdminCategoryComponent } from './dialog-admin-category/dialog-admin-category.component';
 import { DialogConfirmDeleteComponent } from './dialog-confirm-delete/dialog-confirm-delete.component';
 import { DialogAdminProductComponent } from './dialog-admin-product/dialog-admin-product.component';
-import {MDBBootstrapModule, MDBModalRef, MDBRootModule} from "angular-bootstrap-md";
+import {
+  ButtonsModule,
+  CarouselModule, ChartsModule, CollapseModule, DropdownModule, InputsModule,
+  MDBBootstrapModule,
+  MDBModalRef,
+  MDBRootModule, ModalModule, NavbarModule, PopoverModule, TooltipModule,
+  WavesModule
+} from "angular-bootstrap-md";
 
 @NgModule({
 
@@ -53,6 +60,17 @@ import {MDBBootstrapModule, MDBModalRef, MDBRootModule} from "angular-bootstrap-
   entryComponents: [DialogAdminCategoryComponent, DialogAdminProductComponent, DialogConfirmDeleteComponent],
   imports: [
     MDBBootstrapModule.forRoot(),
+    CarouselModule.forRoot(),
+    ButtonsModule,
+    ChartsModule,
+    CollapseModule.forRoot(),
+    DropdownModule.forRoot(),
+    InputsModule.forRoot(),
+    ModalModule.forRoot(),
+    NavbarModule,
+    PopoverModule.forRoot(),
+    TooltipModule.forRoot(),
+    WavesModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
