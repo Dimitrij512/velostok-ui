@@ -10,7 +10,7 @@ import {HomePageComponent} from './home-page/home-page.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CartIconComponent} from "./cart-icon/cart-icon.component";
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http'
+import { HttpModule } from '@angular/http';
 import {
   MatBadgeModule,
   MatButtonModule,
