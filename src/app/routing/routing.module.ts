@@ -13,31 +13,6 @@ const routes: Routes = [
     loadChildren: '../cart/cart.module#CartModule',
   },
   {
-    path: 'mens_outer',
-    loadChildren: '../department/department.module#DepartmentModule',
-    data: { title: 'Men\'s Outerwear', url: '/assets/json/mens_outerwear.json' }
-  },
-  {
-    path: 'ladies_outer',
-    loadChildren: '../department/department.module#DepartmentModule',
-    data: { title: 'Ladies Outerwear', url: '/assets/json/ladies_outerwear.json' }
-  },
-  {
-    path: 'mens_tshirts',
-    loadChildren: '../department/department.module#DepartmentModule',
-    data: { title: 'Men\'s T-Shirts', url: '/assets/json/mens_tshirts.json' }
-  },
-  {
-    path: 'ladies_tshirts',
-    loadChildren: '../department/department.module#DepartmentModule',
-    data: { title: 'Ladies T-Shirts', url: '/assets/json/ladies_tshirts.json' }
-  },
-  {
-    path: 'all_products',
-    loadChildren: '../department/department.module#DepartmentModule',
-    data: { title: 'Всі товари', url: BASEURL + '/allProducts' }
-  },
-  {
     path: 'products/category/:name',
     loadChildren: '../department/department.module#DepartmentModule',
     data: { title: 'Категорія : ', url: BASEURL + '/products/category/' }
