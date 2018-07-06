@@ -1,0 +1,15 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{product.name}}</mat-card-title>
+    <mat-card-subtitle>{{product.price}} грн.</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="product.image" alt="фото товару">
+  <mat-card-content>
+    <p>{{product.description}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="goBack()">Назад</button>
+    <button mat-button>В корзину</button>
+  </mat-card-actions>
+</mat-card>
+
