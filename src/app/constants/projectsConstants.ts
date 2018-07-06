@@ -1,2 +1,2 @@
 
-export const BASEURL: string = 'http://localhost:8082';
+export const BASEURL: string = 'https://velostok.herokuapp.com/allCategories';
