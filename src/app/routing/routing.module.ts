@@ -37,6 +37,11 @@ const routes: Routes = [
     loadChildren: '../department/department.module#DepartmentModule',
     data: { title: 'Всі товари', url: BASEURL + '/allProducts' }
   },
+  {
+    path: 'products/category/:name',
+    loadChildren: '../department/department.module#DepartmentModule',
+    data: { title: 'Категорія : ', url: BASEURL + '/products/category/' }
+  },
 
   {
     path: 'product/:id',
