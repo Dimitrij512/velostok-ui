@@ -1,5 +1,17 @@
-express = require('express');
-app = express();
+const express= require('express'),
+  path = require('path');
 
-app.use(express.static(__dirname + '/app'));
-app.listen(process.env.PORT || 3000);
+const app =express();
+
+
+app.use(express.static('./dist/velostok-ui'));
+
+app.get('/*', (req,res)=>{
+
+  res.sendFile(path.join(__dirname,'/dist/velostok-ui/index.html'));
+
+});
+
+app.listen(process.env.PORT || 8080, ()=>{
+  console.log('Server started');
+})
