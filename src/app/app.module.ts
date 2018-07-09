@@ -44,6 +44,7 @@ import {
   WavesModule
 } from "angular-bootstrap-md";
 import { FooterComponent } from './footer/footer.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
 
@@ -58,6 +59,7 @@ import { FooterComponent } from './footer/footer.component';
     DialogConfirmDeleteComponent,
     DialogAdminProductComponent,
     FooterComponent,
+    MenuComponent,
   ],
   entryComponents: [DialogAdminCategoryComponent, DialogAdminProductComponent, DialogConfirmDeleteComponent],
   imports: [
