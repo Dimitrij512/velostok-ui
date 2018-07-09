@@ -43,6 +43,7 @@ import {
   MDBRootModule, ModalModule, NavbarModule, PopoverModule, TooltipModule,
   WavesModule
 } from "angular-bootstrap-md";
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
 
@@ -56,6 +57,7 @@ import {
     DialogAdminCategoryComponent,
     DialogConfirmDeleteComponent,
     DialogAdminProductComponent,
+    FooterComponent,
   ],
   entryComponents: [DialogAdminCategoryComponent, DialogAdminProductComponent, DialogConfirmDeleteComponent],
   imports: [
