@@ -39,12 +39,12 @@ import {
   ButtonsModule,
   CarouselModule, ChartsModule, CollapseModule, DropdownModule, InputsModule,
   MDBBootstrapModule,
-  MDBModalRef,
-  MDBRootModule, ModalModule, NavbarModule, PopoverModule, TooltipModule,
+  ModalModule, NavbarModule, PopoverModule, TooltipModule,
   WavesModule
 } from "angular-bootstrap-md";
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
+import { PaymentAndDeliveryComponent } from './payment-and-delivery/payment-and-delivery.component';
 
 @NgModule({
 
@@ -60,6 +60,7 @@ import { MenuComponent } from './menu/menu.component';
     DialogAdminProductComponent,
     FooterComponent,
     MenuComponent,
+    PaymentAndDeliveryComponent,
   ],
   entryComponents: [DialogAdminCategoryComponent, DialogAdminProductComponent, DialogConfirmDeleteComponent],
   imports: [

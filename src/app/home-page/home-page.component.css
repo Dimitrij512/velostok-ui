@@ -59,13 +59,13 @@
   font-family: 'Open Sans', sans-serif;
 }
 #welcome .item_list:hover .welcome_icon {
-  background: #3f51b5;
+  background: #0f0f0f;
   cursor: pointer;
 }
 #welcome .item_list:hover .welcome_icon i {
   color: #fff;
 }
 #welcome .item_list:hover h4 {
-  color: #3f51b5;
+  color: #0f0f0f;
   cursor: pointer;
 }
