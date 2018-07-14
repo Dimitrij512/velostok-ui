@@ -37,8 +37,14 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link" routerLink="/">Головна</a>
-      <a class="nav-item nav-link" [matMenuTriggerFor]="animals">Товари</a>
+      <a class="nav-item nav-link" [matMenuTriggerFor]="animals">Категорії товарів</a>
       <a class="nav-item nav-link" routerLink="payment">Оплата та доставка</a>
+      <a class="nav-item nav-link" [matMenuTriggerFor]="adminPages">Адмінка</a>
+
+      <mat-menu #adminPages="matMenu">
+        <button mat-menu-item *ngFor="let entry of entries" (click)=goToAdminPage(entry.path)>{{entry.title}}</button>
+      </mat-menu>
+
 
       <mat-menu #animals="matMenu">
         <button mat-menu-item [matMenuTriggerFor]="vertebrates">Vertebrates</button>

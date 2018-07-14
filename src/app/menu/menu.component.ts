@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NAV_BAR_ENTRIES} from "../departments";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-menu',
@@ -8,12 +9,17 @@ import {NAV_BAR_ENTRIES} from "../departments";
 })
 export class MenuComponent implements OnInit {
 
-  entries:any
+  entries: any
 
-  constructor() { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
     this.entries = NAV_BAR_ENTRIES;
+  }
+
+  goToAdminPage(routToAdminPage : string) {
+    this.router.navigate([routToAdminPage]);
   }
 
 }
