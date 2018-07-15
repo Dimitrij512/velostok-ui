@@ -45,6 +45,10 @@ import {
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { PaymentAndDeliveryComponent } from './payment-and-delivery/payment-and-delivery.component';
+import { ManageSuperCategoryComponent } from './manage-super-category/manage-super-category.component';
+import { ManageSubCategoryComponent } from './manage-sub-category/manage-sub-category.component';
+import { DialogAdminSuperCategoryComponent } from './dialog-admin-super-category/dialog-admin-super-category.component';
+import { DialogAdminSubCategoryComponent } from './dialog-admin-sub-category/dialog-admin-sub-category.component';
 
 @NgModule({
 
@@ -61,6 +65,10 @@ import { PaymentAndDeliveryComponent } from './payment-and-delivery/payment-and-
     FooterComponent,
     MenuComponent,
     PaymentAndDeliveryComponent,
+    ManageSuperCategoryComponent,
+    ManageSubCategoryComponent,
+    DialogAdminSuperCategoryComponent,
+    DialogAdminSubCategoryComponent,
   ],
   entryComponents: [DialogAdminCategoryComponent, DialogAdminProductComponent, DialogConfirmDeleteComponent],
   imports: [
