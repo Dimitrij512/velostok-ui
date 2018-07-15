@@ -5,6 +5,8 @@ import {ManageCategoryComponent} from "../manage-category/manage-category.compon
 import {ManageProductComponent} from "../manage-product/manage-product.component";
 import {BASEURL} from "../constants/projectsConstants";
 import {PaymentAndDeliveryComponent} from "../payment-and-delivery/payment-and-delivery.component";
+import {ManageSuperCategoryComponent} from "../manage-super-category/manage-super-category.component";
+import {ManageSubCategoryComponent} from "../manage-sub-category/manage-sub-category.component";
 
 
 const routes: Routes = [
@@ -33,6 +35,17 @@ const routes: Routes = [
     path: 'manage-product',
     component: ManageProductComponent,
   },
+
+  {
+    path: 'manage-super-category',
+    component: ManageSuperCategoryComponent,
+  },
+
+  {
+    path: 'manage-sub-category',
+    component: ManageSubCategoryComponent
+  },
+
   {
     path:'payment',
     component:PaymentAndDeliveryComponent,
