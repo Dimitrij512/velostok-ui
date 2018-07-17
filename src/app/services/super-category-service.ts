@@ -14,7 +14,7 @@ export class SuperCategoryService {
   }
 
   getAllSuperCategories() {
-    return this.http.get(BASEURL + "/allSuperCategory");
+    return this.http.get(BASEURL + "/allSuperCategories");
   }
 
   createSuperCategory(superCategory: SuperCategory): Observable<any> {

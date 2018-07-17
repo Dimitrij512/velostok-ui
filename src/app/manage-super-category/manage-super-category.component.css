@@ -1,0 +1,35 @@
+.mat-table {
+  display: table;
+  width: 100%;}
+
+.mat-header-row, > .mat-row {
+  display: table-row;
+  padding: 0;
+  border: none;}
+
+.mat-header-cell, > .mat-cell {
+  display: table-cell;
+  height: 48px;
+  vertical-align: middle;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.above-table {
+  background-color: rgba(255, 255, 255, 0.8);
+  min-height: 64px;
+}
+
+.input-filter {
+  display: inline-block;
+  width: 20%;
+}
+
+.button-add {
+  float: right;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
