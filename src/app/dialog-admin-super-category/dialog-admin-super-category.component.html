@@ -1,3 +1,16 @@
-<p>
-  dialog-admin-super-category works!
-</p>
+<form [formGroup]="categoryForm" (ngSubmit)="submitCategoryForm()" novalidate>
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Назва" formControlName="name" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Опис" formControlName="description" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Зображення" formControlName="image" required>
+    </mat-form-field>
+    <button [disabled]="!categoryForm.valid" class="" mat-raised-button color="primary">Зберегти дані</button>
+  </div>
+</form>
