@@ -6,5 +6,6 @@ export class Category {
   description: string;
   image: string;
   path: string;
+  superCategory:string;
   subCategories: Array<SubCategory>;
 }

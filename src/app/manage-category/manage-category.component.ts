@@ -16,13 +16,14 @@ export class ManageCategoryComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns = ['name', 'description', 'image', 'edit', 'delete'];
+  displayedColumns = ['name', 'superCategory', 'edit', 'delete'];
   categories: Array<Category>;
   dataSource: any;
   pageSizeOptions = [5, 10, 25, 50];
   pageSize: Number;
   length:Number;
   positionTollTip = "above";
+
 
   constructor(public categoryService: CategoryService, public dialog: MatDialog, public dialogConfirm: MatDialog) {
 

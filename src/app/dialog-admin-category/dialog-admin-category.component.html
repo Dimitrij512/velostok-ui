@@ -1,6 +1,12 @@
 <form [formGroup]="categoryForm" (ngSubmit)="submitCategoryForm()" novalidate>
   <div class="example-container">
     <mat-form-field>
+      <mat-select placeholder="Оберіть супер категорію:" formControlName="superCategory">
+        <mat-option disabled>Оберіть супер категорію</mat-option>
+        <mat-option *ngFor="let category of superCategories" [value]="category.name">{{category.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
       <input matInput placeholder="Назва" formControlName="name" required>
     </mat-form-field>
 

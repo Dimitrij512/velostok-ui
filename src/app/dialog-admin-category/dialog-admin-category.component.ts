@@ -20,20 +20,20 @@ export class DialogAdminCategoryComponent implements OnInit {
   constructor(public categoryService: CategoryService, public superCategoryService:SuperCategoryService, public dialogCategory: MatDialogRef<DialogAdminCategoryComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any, public fb: FormBuilder, public snackBar: MatSnackBar) {
 
-
-    this.superCategoryService.getAllSuperCategories();
     this.createCategoryForm(data);
+
   }
   ngOnInit() {
+    this.categoryService.getAllSuperCategories().then(response => {this.superCategories = response});
   }
 
   createCategoryForm(data: any) {
-    console.log(this.superCategories);
     this.categoryForm = this.fb.group({
+      superCategory : [data.superCategory],
       name: [data.name, [Validators.required, Validators.maxLength(50)]],
       description: [data.description, [Validators.required]],
       image: [data.image],
-    })
+    });
   }
 
   submitCategoryForm() {

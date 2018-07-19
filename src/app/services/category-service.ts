@@ -2,7 +2,8 @@ import {HttpClient} from "@angular/common/http";
 import {BASEURL} from "../constants/projectsConstants";
 import {Injectable} from "@angular/core";
 import {Category} from "../models/Category";
-import {Observable} from "rxjs/index";
+import {Observable, of} from "rxjs/index";
+import {SuperCategory} from "../models/SuperCategory";
 
 @Injectable()
 export class CategoryService {
@@ -15,6 +16,13 @@ export class CategoryService {
 
   getAllCategories() {
     return this.http.get(BASEURL + "/allCategories");
+  }
+
+/*  getAllSuperCategories(): Observable<SuperCategory[]> {
+    return this.http.get<SuperCategory[]>(BASEURL + "/allSuperCategories");
+  }  */
+  getAllSuperCategories(): Promise<any> {
+    return this.http.get(BASEURL + "/allSuperCategories").toPromise();
   }
 
   createCategory(category: Category): Observable<any> {
