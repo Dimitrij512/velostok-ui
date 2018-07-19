@@ -1,20 +1,22 @@
 import {HttpClient} from "@angular/common/http";
 import {BASEURL} from "../constants/projectsConstants";
 import {Injectable} from "@angular/core";
-import {Observable} from "rxjs/index";
+import {Observable, of} from "rxjs/index";
 import {SuperCategory} from "../models/SuperCategory";
 
 @Injectable()
 export class SuperCategoryService {
   private baseUrl: string;
+  public superCategories: Observable<SuperCategory[]> = of([]);
 
   constructor(private http: HttpClient) {
 
     this.baseUrl = BASEURL;
   }
 
-  getAllSuperCategories() {
-    return this.http.get(BASEURL + "/allSuperCategories");
+  getAllSuperCategories(): Observable<SuperCategory[]> {
+    this.superCategories =  this.http.get<SuperCategory[]>(BASEURL + "/allSuperCategories");
+    return this.superCategories;
   }
 
   createSuperCategory(superCategory: SuperCategory): Observable<any> {

@@ -3,28 +3,32 @@ import {MAT_DIALOG_DATA, MatDialogRef, MatSnackBar} from "@angular/material";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Category} from "../models/Category";
 import {CategoryService} from "../services/category-service";
+import {SuperCategoryService} from "../services/super-category-service";
+import {SuperCategory} from "../models/SuperCategory";
 
 @Component({
   selector: 'app-dialog-admin-category',
   templateUrl: './dialog-admin-category.component.html',
   styleUrls: ['./dialog-admin-category.component.css'],
-  providers: [CategoryService]
+  providers: [CategoryService, SuperCategoryService]
 })
 export class DialogAdminCategoryComponent implements OnInit {
 
   public categoryForm: FormGroup;
+  public superCategories: SuperCategory[] = [];
 
-  constructor(public categoryService: CategoryService, public dialogCategory: MatDialogRef<DialogAdminCategoryComponent>,
+  constructor(public categoryService: CategoryService, public superCategoryService:SuperCategoryService, public dialogCategory: MatDialogRef<DialogAdminCategoryComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any, public fb: FormBuilder, public snackBar: MatSnackBar) {
 
+
+    this.superCategoryService.getAllSuperCategories();
     this.createCategoryForm(data);
   }
-
   ngOnInit() {
   }
 
   createCategoryForm(data: any) {
-    console.log(data);
+    console.log(this.superCategories);
     this.categoryForm = this.fb.group({
       name: [data.name, [Validators.required, Validators.maxLength(50)]],
       description: [data.description, [Validators.required]],
