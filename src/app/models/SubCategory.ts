@@ -6,5 +6,6 @@ export class SubCategory {
   name: string;
   description: string;
   image: string;
+  category:string;
   products : Array<Product>;
 }

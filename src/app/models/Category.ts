@@ -7,5 +7,6 @@ export class Category {
   image: string;
   path: string;
   superCategory:string;
+  superCategoryId:string;
   subCategories: Array<SubCategory>;
 }

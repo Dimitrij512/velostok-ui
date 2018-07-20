@@ -41,6 +41,7 @@ export class DialogAdminCategoryComponent implements OnInit {
 
     let category = new Category();
     category.id = this.data.id;
+    category.superCategory = field.superCategory;
     category.name = field.name;
     category.description = field.description;
     category.image = field.image;
