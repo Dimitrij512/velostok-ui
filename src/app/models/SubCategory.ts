@@ -2,7 +2,7 @@
 import {Product} from "./Product";
 
 export class SubCategory {
-  id: number;
+  id: string;
   name: string;
   description: string;
   image: string;

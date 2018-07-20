@@ -1,7 +1,7 @@
 import {SubCategory} from "./SubCategory";
 
 export class Category {
-  id: number;
+  id: string;
   name: string;
   description: string;
   image: string;

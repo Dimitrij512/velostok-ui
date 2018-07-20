@@ -16,7 +16,7 @@ export class ManageCategoryComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns = ['name', 'superCategory', 'edit', 'delete'];
+  displayedColumns = ['name', 'superCategoryName', 'edit', 'delete'];
   categories: Array<Category>;
   dataSource: any;
   pageSizeOptions = [5, 10, 25, 50];

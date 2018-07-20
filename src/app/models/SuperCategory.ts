@@ -1,7 +1,7 @@
 import {Category} from "./Category";
 
 export class SuperCategory {
-  id: number;
+  id: string;
   name: string;
   description: string;
   image: string;

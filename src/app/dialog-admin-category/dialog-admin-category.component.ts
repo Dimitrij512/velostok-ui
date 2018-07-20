@@ -17,19 +17,22 @@ export class DialogAdminCategoryComponent implements OnInit {
   public categoryForm: FormGroup;
   public superCategories: SuperCategory[] = [];
 
-  constructor(public categoryService: CategoryService, public superCategoryService:SuperCategoryService, public dialogCategory: MatDialogRef<DialogAdminCategoryComponent>,
+  constructor(public categoryService: CategoryService, public superCategoryService: SuperCategoryService, public dialogCategory: MatDialogRef<DialogAdminCategoryComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any, public fb: FormBuilder, public snackBar: MatSnackBar) {
 
     this.createCategoryForm(data);
 
   }
+
   ngOnInit() {
-    this.categoryService.getAllSuperCategories().then(response => {this.superCategories = response});
+    this.categoryService.getAllSuperCategories().then(response => {
+      this.superCategories = response
+    });
   }
 
   createCategoryForm(data: any) {
     this.categoryForm = this.fb.group({
-      superCategory : [data.superCategory],
+      superCategoryName: [data.superCategoryName],
       name: [data.name, [Validators.required, Validators.maxLength(50)]],
       description: [data.description, [Validators.required]],
       image: [data.image],
@@ -41,7 +44,8 @@ export class DialogAdminCategoryComponent implements OnInit {
 
     let category = new Category();
     category.id = this.data.id;
-    category.superCategory = field.superCategory;
+    category.superCategoryName = field.superCategoryName;
+    category.superCategoryId = this.superCategories.find(supercategory => supercategory.name == field.superCategoryName).id;
     category.name = field.name;
     category.description = field.description;
     category.image = field.image;
