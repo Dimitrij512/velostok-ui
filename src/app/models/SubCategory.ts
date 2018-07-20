@@ -7,5 +7,7 @@ export class SubCategory {
   description: string;
   image: string;
   category:string;
+  categoryName:string;
+  categoryId:string;
   products : Array<Product>;
 }

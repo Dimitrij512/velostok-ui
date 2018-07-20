@@ -6,7 +6,7 @@ export class Category {
   description: string;
   image: string;
   path: string;
-  superCategory:string;
+  superCategoryName:string;
   superCategoryId:string;
   subCategories: Array<SubCategory>;
 }

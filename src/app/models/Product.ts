@@ -3,8 +3,8 @@ export class Product {
   name: string;
   title: string;
   category: string;
-  subCategory:string;
-  categoryId:string;
+  subCategoryName:string;
+  subCategoryId:string;
   price: number;
   description: string;
   image:string;
