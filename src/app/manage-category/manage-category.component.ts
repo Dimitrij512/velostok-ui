@@ -25,6 +25,7 @@ export class ManageCategoryComponent implements OnInit {
   positionTollTip = "above";
 
 
+
   constructor(public categoryService: CategoryService, public dialog: MatDialog, public dialogConfirm: MatDialog) {
 
   }

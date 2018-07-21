@@ -5,7 +5,7 @@
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Фільтр">
     </mat-form-field>
 
-    <mat-select placeholder="Категорія" [(ngModel)]="selectedValue" (ngModelChange)="findProductsBySubCategoryId()" name="category" class="select-category">
+    <mat-select placeholder="Підкатегорія" [(ngModel)]="selectedValue" (ngModelChange)="findProductsBySubCategoryId()" name="category" class="select-category">
       <mat-option *ngFor="let category of subCategories" [value]="category.id">
         {{category.name}}
       </mat-option>

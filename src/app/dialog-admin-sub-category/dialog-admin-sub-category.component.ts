@@ -54,6 +54,7 @@ export class DialogAdminSubCategoryComponent implements OnInit {
   }
 
   createOrUpdateSubCategory(subCategory: SubCategory) {
+    console.log(subCategory);
     if (subCategory.id === undefined) {
       this.subCategoryService.createSubCategory(subCategory).subscribe(
         response => {

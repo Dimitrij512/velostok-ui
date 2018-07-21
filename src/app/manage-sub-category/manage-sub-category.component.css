@@ -1,3 +1,4 @@
+
 .mat-table {
   display: table;
   width: 100%;}
@@ -23,6 +24,12 @@
 .input-filter {
   display: inline-block;
   width: 20%;
+}
+
+.select-category {
+  display: inline-block;
+  width: 30%;
+  padding-left: 10%;
 }
 
 .button-add {

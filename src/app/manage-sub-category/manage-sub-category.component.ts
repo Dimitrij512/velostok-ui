@@ -5,12 +5,13 @@ import {DialogConfirmDeleteComponent} from "../dialog-confirm-delete/dialog-conf
 import {SubCategory} from "../models/SubCategory";
 import {DialogAdminSubCategoryComponent} from "../dialog-admin-sub-category/dialog-admin-sub-category.component";
 import {SubCategoryService} from "../services/subCategory-service";
+import {CategoryService} from "../services/category-service";
 
 @Component({
   selector: 'app-manage-sub-category',
   templateUrl: './manage-sub-category.component.html',
   styleUrls: ['./manage-sub-category.component.css'],
-  providers:[SubCategoryService]
+  providers: [SubCategoryService, CategoryService]
 })
 export class ManageSubCategoryComponent implements OnInit {
 
@@ -19,20 +20,26 @@ export class ManageSubCategoryComponent implements OnInit {
 
   displayedColumns = ['name', 'categoryName', 'edit', 'delete'];
   subCategories: Array<SubCategory>;
+  categories: Array<Category>;
   dataSource: any;
   pageSizeOptions = [5, 10, 25, 50];
   pageSize: Number;
-  length:Number;
+  length: Number;
   positionTollTip = "above";
   selectedValue: string;
 
 
-  constructor(public subCategoryService: SubCategoryService, public dialog: MatDialog, public dialogConfirm: MatDialog) {
+  constructor(public subCategoryService: SubCategoryService, public categoryService: CategoryService, public dialog: MatDialog, public dialogConfirm: MatDialog) {
 
   }
 
   ngOnInit() {
     this.subCategoryService.getAllSubCategories().subscribe(data => this.dataHandler(data), this.searchErrorHandler);
+    this.categoryService.getAllCategories().subscribe(categories => this.categories = categories as Array<Category>);
+  }
+
+  public findSubCategoriesByCategoryId() {
+    this.subCategoryService.findSubCategoriesByCategoryId(this.selectedValue).subscribe(data => this.dataHandler(data), this.searchErrorHandler);
   }
 
   public dataHandler(categories: any) {
@@ -82,7 +89,7 @@ export class ManageSubCategoryComponent implements OnInit {
   openDialogConfirmRemove(row): void {
     let dialogRef = this.dialogConfirm.open(DialogConfirmDeleteComponent, {
       width: '500px',
-      minWidth:'500px'
+      minWidth: '500px'
     });
 
     dialogRef.afterClosed().subscribe(result => {

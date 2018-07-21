@@ -5,6 +5,12 @@
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Фільтр">
     </mat-form-field>
 
+    <mat-select placeholder="Підкатегорія" [(ngModel)]="selectedValue" (ngModelChange)="findSubCategoriesByCategoryId()" name="category" class="select-category">
+      <mat-option *ngFor="let category of subCategories" [value]="category.id">
+        {{category.name}}
+      </mat-option>
+    </mat-select>
+
     <button mat-mini-fab class="button-add">
       <mat-icon aria-label="Добавити категорію" (click)="createCategory()">add</mat-icon>
     </button>

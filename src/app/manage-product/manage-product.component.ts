@@ -26,7 +26,7 @@ export class ManageProductComponent implements OnInit {
   length: Number;
   positionTollTip = "above";
   selectedValue: string;
-  products: Array<Product>
+  products: Array<Product>;
 
   constructor(public productService: ProductService, public subCategoryService: SubCategoryService, public dialog: MatDialog, public dialogConfirm: MatDialog) {
   }
