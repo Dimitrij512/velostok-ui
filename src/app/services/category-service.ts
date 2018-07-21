@@ -4,6 +4,7 @@ import {Injectable} from "@angular/core";
 import {Category} from "../models/Category";
 import {Observable, of} from "rxjs/index";
 import {SuperCategory} from "../models/SuperCategory";
+import {SubCategory} from "../models/SubCategory";
 
 @Injectable()
 export class CategoryService {
@@ -18,11 +19,17 @@ export class CategoryService {
     return this.http.get(BASEURL + "/allCategories");
   }
 
-/*  getAllSuperCategories(): Observable<SuperCategory[]> {
-    return this.http.get<SuperCategory[]>(BASEURL + "/allSuperCategories");
-  }  */
   getAllSuperCategories(): Promise<any> {
     return this.http.get(BASEURL + "/allSuperCategories").toPromise();
+  }
+
+
+  findCategoryById(id: String): Observable<Category> {
+    return this.http.get<Category>(BASEURL + "/category/" + id);
+  }
+
+  findAllCategoriesBySuperCategoryId(id: String): Observable<Category[]> {
+    return this.http.get<Category[]>(BASEURL + "/category/superCategory/" + id);
   }
 
   createCategory(category: Category): Observable<any> {

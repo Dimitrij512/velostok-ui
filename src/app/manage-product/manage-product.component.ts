@@ -1,49 +1,50 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from "@angular/material";
-import {DialogAdminCategoryComponent} from "../dialog-admin-category/dialog-admin-category.component";
-import {Category} from "../models/Category";
 import {Product} from "../models/Product";
 import {ProductService} from "../services/product-service";
 import {DialogConfirmDeleteComponent} from "../dialog-confirm-delete/dialog-confirm-delete.component";
 import {DialogAdminProductComponent} from "../dialog-admin-product/dialog-admin-product.component";
+import {SubCategory} from "../models/SubCategory";
+import {SubCategoryService} from "../services/subCategory-service";
 
 @Component({
   selector: 'app-manage-product',
   templateUrl: './manage-product.component.html',
   styleUrls: ['./manage-product.component.css'],
-  providers: [ProductService]
+  providers: [ProductService, SubCategoryService]
 })
 export class ManageProductComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns = ['name', 'category', 'price', 'edit', 'delete'];
-  products: Array<Product>;
-  categories: Array<Category>;
+  displayedColumns = ['name', 'subCategoryName', 'price', 'edit', 'delete'];
+  subCategories: Array<SubCategory>;
   dataSource: any;
   pageSizeOptions = [5, 10, 25, 50];
   pageSize: Number;
   length: Number;
   positionTollTip = "above";
   selectedValue: string;
+  products: Array<Product>
 
-  constructor(public productService: ProductService, public dialog: MatDialog, public dialogConfirm: MatDialog) {
-
+  constructor(public productService: ProductService, public subCategoryService: SubCategoryService, public dialog: MatDialog, public dialogConfirm: MatDialog) {
   }
 
   ngOnInit() {
-    this.productService.getAllProducts().subscribe(data => this.dataHandler(data), this.searchErrorHandler);
-    this.productService.getAllCategories().subscribe(data => this.categories = data as Array<Category>, this.searchErrorHandler);
+    this.subCategoryService.getAllSubCategories().subscribe(data => {
+      this.subCategories = data as Array<SubCategory>
+    }, this.searchErrorHandler);
   }
 
-  public findAllProductsByCategryName() {
-    console.log(this.selectedValue);
-    this.productService.findAllProductByCategoryName(this.selectedValue).subscribe(data => this.dataHandler(data), this.searchErrorHandler);
+  public findProductsBySubCategoryId() {
+    this.productService.findAllProductsBySubCategoryId(this.selectedValue).subscribe(data => this.dataHandler(data), this.searchErrorHandler);
   }
 
-  public dataHandler(categories: any) {
-    this.products = categories as Array<Product>;
+  public dataHandler(products: Array<Product>) {
+    console.log(products);
+
+    this.products = products as Array<Product>;
     this.dataSource = new MatTableDataSource(this.products);
     this.dataSource.sort = this.sort;
 
@@ -56,8 +57,9 @@ export class ManageProductComponent implements OnInit {
   }
 
   createProduct() {
+    let product = new Product();
     const dialogRef = this.dialog.open(DialogAdminProductComponent, {
-      data: new Category(),
+      data: product,
       minHeight: '30%',
       minWidth: '40%'
     });
@@ -65,7 +67,8 @@ export class ManageProductComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result !== undefined) {
         this.products.push(result);
-        this.dataHandler(this.products.reverse());
+        this.products.reverse();
+        this.dataHandler(this.products);
       }
     });
   };
@@ -93,13 +96,11 @@ export class ManageProductComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-
       result == 'confirm' ? this.deleteProduct(row) : 'doNothing';
     });
   }
 
   deleteProduct(row) {
-    console.log(row);
     for (let curProduct = 0; curProduct < this.products.length; curProduct++) {
       if (row.id === this.products[curProduct].id) {
         this.products.splice(curProduct, 1);

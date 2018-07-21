@@ -29,8 +29,12 @@ export class ProductService {
     return this.http.get(BASEURL + "/products/" + categoryName);
   }
 
-  createProduct(product: Product): Observable<any> {
-    return this.http.post(BASEURL + "/admin/product", product);
+  findAllProductsBySubCategoryId(id: string): Observable<Product[]> {
+    return this.http.get<Product[]>(BASEURL + "/products/subCategory/" + id);
+  }
+
+  createProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(BASEURL + "/admin/product", product);
   }
 
   updateProduct(product: Product): Observable<any> {

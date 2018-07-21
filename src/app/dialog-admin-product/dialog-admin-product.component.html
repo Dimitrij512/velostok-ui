@@ -9,7 +9,11 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Категорія" formControlName="category" required>
+      <mat-select placeholder="Оберіть підкатегорію:" formControlName="subCategoryName">
+        <mat-option disabled>Оберіть підкатегорію</mat-option>
+        <mat-option *ngFor="let subCategory of subCategories" [value]="subCategory.name">{{subCategory.name}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
 
     <mat-form-field>

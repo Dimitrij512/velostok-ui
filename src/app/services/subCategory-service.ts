@@ -28,6 +28,15 @@ export class SubCategoryService {
     this.http.delete(BASEURL + "/admin/subCategory/" + id).toPromise().catch(this.handleHttpError);
   }
 
+  findSubCategoryById(id:String): Observable<SubCategory> {
+    return this.http.get<SubCategory>(BASEURL + "/subCategory/" + id );
+  }
+
+  findSubCategoriesByCategoryId(id:String): Observable<SubCategory[]>{
+    return this.http.get<SubCategory[]>(BASEURL + "/subCategory/category/" + id );
+  }
+
+
   private handleHttpError(error: any) {
     alert("Щось пішло не так, спробуйте ще раз або зверніться до адміністратора. Помилка : " + error);
   }

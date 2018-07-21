@@ -24,6 +24,7 @@ export class ManageSubCategoryComponent implements OnInit {
   pageSize: Number;
   length:Number;
   positionTollTip = "above";
+  selectedValue: string;
 
 
   constructor(public subCategoryService: SubCategoryService, public dialog: MatDialog, public dialogConfirm: MatDialog) {
