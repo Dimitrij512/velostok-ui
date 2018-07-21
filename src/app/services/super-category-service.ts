@@ -7,7 +7,6 @@ import {SuperCategory} from "../models/SuperCategory";
 @Injectable()
 export class SuperCategoryService {
   private baseUrl: string;
-  public superCategories: Observable<SuperCategory[]> = of([]);
 
   constructor(private http: HttpClient) {
 
@@ -15,8 +14,7 @@ export class SuperCategoryService {
   }
 
   getAllSuperCategories(): Observable<SuperCategory[]> {
-    this.superCategories =  this.http.get<SuperCategory[]>(BASEURL + "/allSuperCategories");
-    return this.superCategories;
+    return this.http.get<SuperCategory[]>(BASEURL + "/allSuperCategories");
   }
 
   createSuperCategory(superCategory: SuperCategory): Observable<any> {

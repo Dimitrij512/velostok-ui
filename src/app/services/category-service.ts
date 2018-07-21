@@ -3,8 +3,6 @@ import {BASEURL} from "../constants/projectsConstants";
 import {Injectable} from "@angular/core";
 import {Category} from "../models/Category";
 import {Observable, of} from "rxjs/index";
-import {SuperCategory} from "../models/SuperCategory";
-import {SubCategory} from "../models/SubCategory";
 
 @Injectable()
 export class CategoryService {

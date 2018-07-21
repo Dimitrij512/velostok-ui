@@ -5,9 +5,9 @@
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Фільтр">
     </mat-form-field>
 
-    <mat-select placeholder="Підкатегорія" [(ngModel)]="selectedValue" (ngModelChange)="findSubCategoriesByCategoryId()" name="category" class="select-category">
-      <mat-option *ngFor="let category of subCategories" [value]="category.id">
-        {{category.name}}
+    <mat-select placeholder="Cупер категорія" [(ngModel)]="selectedValue" (ngModelChange)="findCategoriesBySuperCategoryId()" name="category" class="select-category">
+      <mat-option *ngFor="let superCategory of superCategories" [value]="superCategory.id">
+        {{superCategory.name}}
       </mat-option>
     </mat-select>
 

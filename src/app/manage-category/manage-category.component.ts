@@ -4,12 +4,14 @@ import {CategoryService} from "../services/category-service";
 import {Category} from "../models/Category";
 import {DialogAdminCategoryComponent} from "../dialog-admin-category/dialog-admin-category.component";
 import {DialogConfirmDeleteComponent} from "../dialog-confirm-delete/dialog-confirm-delete.component";
+import {SuperCategory} from "../models/SuperCategory";
+import {SuperCategoryService} from "../services/super-category-service";
 
 @Component({
   selector: 'app-manage-category',
   templateUrl: './manage-category.component.html',
   styleUrls: ['./manage-category.component.css'],
-  providers: [CategoryService]
+  providers: [CategoryService, SuperCategoryService]
 })
 export class ManageCategoryComponent implements OnInit {
 
@@ -18,20 +20,26 @@ export class ManageCategoryComponent implements OnInit {
 
   displayedColumns = ['name', 'superCategoryName', 'edit', 'delete'];
   categories: Array<Category>;
+  superCategories: Array<SuperCategory>;
   dataSource: any;
   pageSizeOptions = [5, 10, 25, 50];
   pageSize: Number;
-  length:Number;
+  length: Number;
   positionTollTip = "above";
+  selectedValue: string;
 
 
-
-  constructor(public categoryService: CategoryService, public dialog: MatDialog, public dialogConfirm: MatDialog) {
+  constructor(public categoryService: CategoryService, public superCategoryService: SuperCategoryService, public dialog: MatDialog, public dialogConfirm: MatDialog) {
 
   }
 
   ngOnInit() {
     this.categoryService.getAllCategories().subscribe(data => this.dataHandler(data), this.searchErrorHandler);
+    this.superCategoryService.getAllSuperCategories().subscribe(superCategories => this.superCategories = superCategories);
+  }
+
+  public findCategoriesBySuperCategoryId() {
+    this.categoryService.findAllCategoriesBySuperCategoryId(this.selectedValue).subscribe(data => this.dataHandler(data), this.searchErrorHandler);
   }
 
   public dataHandler(categories: any) {
@@ -81,7 +89,7 @@ export class ManageCategoryComponent implements OnInit {
   openDialogConfirmRemove(row): void {
     let dialogRef = this.dialogConfirm.open(DialogConfirmDeleteComponent, {
       width: '500px',
-      minWidth:'500px'
+      minWidth: '500px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
