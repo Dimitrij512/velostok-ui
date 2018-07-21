@@ -16,10 +16,6 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-.card-table-category {
-  min-width: 800px;
-}
-
 .above-table {
   background-color: rgba(255, 255, 255, 0.8);
   min-height: 64px;

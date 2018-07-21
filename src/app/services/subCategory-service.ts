@@ -1,7 +1,6 @@
 import {SubCategory} from "../models/SubCategory";
 import {HttpClient} from "@angular/common/http";
 import {BASEURL} from "../constants/projectsConstants";
-import {SuperCategory} from "../models/SuperCategory";
 import {Observable, of} from "rxjs/index";
 import {Injectable} from "@angular/core";
 
@@ -17,11 +16,11 @@ export class SubCategoryService {
     return this.subCategories;
   }
 
-  createSubCategory(superCategory: SuperCategory): Observable<any> {
+  createSubCategory(superCategory: SubCategory): Observable<any> {
     return this.http.post(BASEURL + "/admin/subCategory", superCategory);
   }
 
-  updateSubCategory(superCategory: SuperCategory): Observable<any> {
+  updateSubCategory(superCategory: SubCategory): Observable<any> {
     return this.http.put(BASEURL + "/admin/subCategory", superCategory);
   }
 

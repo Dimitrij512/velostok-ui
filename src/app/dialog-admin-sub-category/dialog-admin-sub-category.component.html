@@ -1,3 +1,23 @@
-<p>
-  dialog-admin-sub-category works!
-</p>
+<form [formGroup]="categoryForm" (ngSubmit)="submitSubCategoryForm()" novalidate>
+  <div class="example-container">
+    <mat-form-field>
+      <mat-select placeholder="Оберіть категорію:" formControlName="categoryName">
+        <mat-option disabled>Оберіть супер категорію</mat-option>
+        <mat-option *ngFor="let category of categories" [value]="category.name">{{category.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Назва" formControlName="name" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Опис" formControlName="description" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Зображення" formControlName="image" required>
+    </mat-form-field>
+    <button [disabled]="!categoryForm.valid" class="" mat-raised-button color="primary">Зберегти дані</button>
+  </div>
+</form>

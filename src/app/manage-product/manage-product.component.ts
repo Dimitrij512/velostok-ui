@@ -18,7 +18,7 @@ export class ManageProductComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns = ['name', 'title', 'category', 'price', 'description', 'edit', 'delete'];
+  displayedColumns = ['name', 'category', 'price', 'edit', 'delete'];
   products: Array<Product>;
   categories: Array<Category>;
   dataSource: any;

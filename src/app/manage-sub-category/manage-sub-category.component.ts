@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from "@angular/material";
 import {Category} from "../models/Category";
-import {DialogAdminCategoryComponent} from "../dialog-admin-category/dialog-admin-category.component";
 import {DialogConfirmDeleteComponent} from "../dialog-confirm-delete/dialog-confirm-delete.component";
 import {SubCategory} from "../models/SubCategory";
 import {DialogAdminSubCategoryComponent} from "../dialog-admin-sub-category/dialog-admin-sub-category.component";
