@@ -25,6 +25,11 @@ export class SuperCategoryService {
     return this.http.put(BASEURL + "/admin/superCategory", superCategory);
   }
 
+  findSuperCategoryById(id:string):Observable<SuperCategory>{
+    console.log(BASEURL + "/superCategory/" + id);
+    return this.http.get<SuperCategory>(BASEURL + "/superCategory/" + id);
+  }
+
   deleteSuperCategory(id: String) {
     this.http.delete(BASEURL + "/admin/superCategory/" + id).toPromise().catch(this.handleHttpError);
   }
