@@ -18,7 +18,7 @@ export class MenuComponent implements OnInit {
     this.entries = NAV_BAR_ENTRIES;
   }
 
-  goToAdminPage(routToAdminPage : string) {
+  goToAdminPage(routToAdminPage: string) {
     this.router.navigate([routToAdminPage]);
   }
 
