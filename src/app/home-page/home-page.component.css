@@ -1,4 +1,7 @@
-
+.sup-img{
+  max-height: 250px;
+  margin:auto;
+}
 /*Welcome Section*/
 #welcome {
   min-height: 350px;

@@ -107,7 +107,7 @@
     <div class="col-lg-3 col-md-6 mb-lg-0 mb-4" *ngFor = "let entry of entries" >
       <div class="card collection-card z-depth-1-half">
         <div class="view zoom">
-          <img [src]="entry.image" class="img-fluid" alt="{{entry.name}}" (click)="findAllCategoriesBySuperCategoryId(entry.id)">
+          <img [src]="entry.image" class="img-fluid sup-img" alt="{{entry.name}}" (click)="findAllCategoriesBySuperCategoryId(entry.id)">
           <div class="stripe dark">
             <a>
               <p>{{entry.name}}
