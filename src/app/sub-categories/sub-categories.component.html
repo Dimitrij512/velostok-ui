@@ -1,0 +1,29 @@
+
+<section class="text-center my-5">
+
+  <h2 class="h1-responsive font-weight-bold text-center my-5">Категорії</h2>
+  <p class="grey-text text-center w-responsive mx-auto mb-5">Наші найкращі товари для Вас </p>
+  <div class="row">
+    <div class="col-lg-3 col-md-6 mb-lg-0 mb-4 card-product" *ngFor="let category of subCategories">
+      <div class="card align-items-center">
+        <div class="view overlay" (click)="findAllProductBySubCategoryId(category.id)">
+          <img src={{category.image}} class="card-img-top" alt="">
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+        <div class="card-body text-center">
+          <a (click)="findAllProductBySubCategoryId(category.id)" class="grey-text">
+            <h5>{{truncate(category.name)}}</h5>
+          </a>
+          <h5>
+            <strong>
+              <a href="" class="dark-grey-text">{{truncate(category.name)}}</a>
+            </strong>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
