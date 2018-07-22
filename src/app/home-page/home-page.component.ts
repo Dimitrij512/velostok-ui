@@ -28,9 +28,4 @@ export class HomePageComponent implements OnInit {
   findAllCategoriesBySuperCategoryId(superCategoryId: string){
     this.router.navigate(["categories/superCategory/", superCategoryId]);
   }
-
-/*  findAllProductByCategoryName(categoryName: string){
-    this.router.navigate(["products/category/", categoryName]);
-  }*/
-
 }

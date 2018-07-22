@@ -20,6 +20,7 @@ interface DepartmentData {
 export class DepartmentComponent implements OnInit {
   title = "";
   nameOfCategory: string;
+  idOfSubCategory:string;
   response: Item[];
 
   constructor(private readonly route: ActivatedRoute,
@@ -31,7 +32,7 @@ export class DepartmentComponent implements OnInit {
   ngOnInit() {
 
     this.route.params.subscribe(params => {
-      this.nameOfCategory = params['name'];
+      this.idOfSubCategory = params['id'];
     });
 
 
@@ -40,7 +41,7 @@ export class DepartmentComponent implements OnInit {
         this.title = data.title;
       }),
       switchMap((data: { url: string }) =>
-        this.http.get(data.url + this.nameOfCategory)
+        this.http.get(data.url + this.idOfSubCategory)
       )
     ).subscribe((response: Item[]) => {
       this.response = response;

@@ -18,9 +18,9 @@ const routes: Routes = [
     loadChildren: '../cart/cart.module#CartModule',
   },
   {
-    path: 'products/category/:name',
+    path: 'products/subCategory/:id',
     loadChildren: '../department/department.module#DepartmentModule',
-    data: { title: 'Категорія : ', url: BASEURL + '/products/category/' }
+    data: { title: 'Категорія : ', url: BASEURL + '/products/subCategory/' }
   },
 
   {
