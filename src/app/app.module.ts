@@ -47,6 +47,8 @@ import {ManageSuperCategoryComponent} from './manage-super-category/manage-super
 import {ManageSubCategoryComponent} from './manage-sub-category/manage-sub-category.component';
 import {DialogAdminSuperCategoryComponent} from './dialog-admin-super-category/dialog-admin-super-category.component';
 import {DialogAdminSubCategoryComponent} from './dialog-admin-sub-category/dialog-admin-sub-category.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { SubCategoriesComponent } from './sub-categories/sub-categories.component';
 
 @NgModule({
 
@@ -67,6 +69,8 @@ import {DialogAdminSubCategoryComponent} from './dialog-admin-sub-category/dialo
     ManageSubCategoryComponent,
     DialogAdminSuperCategoryComponent,
     DialogAdminSubCategoryComponent,
+    CategoriesComponent,
+    SubCategoriesComponent,
   ],
   entryComponents: [DialogAdminCategoryComponent, DialogAdminProductComponent, DialogConfirmDeleteComponent, DialogAdminSuperCategoryComponent, DialogAdminSubCategoryComponent],
   imports: [

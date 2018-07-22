@@ -3,19 +3,21 @@ import {NAV_BAR_ENTRIES} from "../departments";
 import {CategoryService} from "../services/category-service";
 import {Category} from "../models/Category";
 import {Router} from "@angular/router";
+import {SuperCategory} from "../models/SuperCategory";
+import {SuperCategoryService} from "../services/super-category-service";
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
-  providers: [CategoryService]
+  providers: [SuperCategoryService]
 })
 export class HomePageComponent implements OnInit {
-  entries: Array<Category>;
+  entries: Array<SuperCategory>;
 
-  constructor(private categoryService: CategoryService, private router: Router) {
-    categoryService.getAllCategories().subscribe(categories => {
-      this.entries = categories as Array<Category>;
+  constructor(private superCategoryService: SuperCategoryService, private router: Router) {
+    superCategoryService.getAllSuperCategories().subscribe(categories => {
+      this.entries = categories;
     })
 
   }
@@ -23,8 +25,12 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
   }
 
-  findAllProductByCategoryName(categoryName: string){
-    this.router.navigate(["products/category/", categoryName]);
+  findAllCategoriesBySuperCategoryId(superCategoryId: string){
+    this.router.navigate(["categories/superCategory/", superCategoryId]);
   }
+
+/*  findAllProductByCategoryName(categoryName: string){
+    this.router.navigate(["products/category/", categoryName]);
+  }*/
 
 }
