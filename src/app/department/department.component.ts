@@ -5,6 +5,7 @@ import {switchMap, tap} from 'rxjs/operators';
 
 import {Item} from '../item';
 import {ShoppingCartService} from '../shopping-cart.service';
+import {CategoryService} from "../services/category-service";
 
 interface DepartmentData {
   id: string,
@@ -15,24 +16,27 @@ interface DepartmentData {
 @Component({
   selector: 'app-department',
   templateUrl: './department.component.html',
-  styleUrls: ['./department.component.css']
+  styleUrls: ['./department.component.css'],
+  providers:[CategoryService]
 })
 export class DepartmentComponent implements OnInit {
   title = "";
   nameOfCategory: string;
-  idOfSubCategory:string;
+  idCategory:string;
   response: Item[];
 
   constructor(private readonly route: ActivatedRoute,
               private readonly http: HttpClient,
               private readonly cart: ShoppingCartService,
+              private readonly categoryService:CategoryService,
               private router: Router) {
   }
 
   ngOnInit() {
 
     this.route.params.subscribe(params => {
-      this.idOfSubCategory = params['id'];
+      this.idCategory = params['id'];
+      this.categoryService.findCategoryById(this.idCategory).subscribe(category => this.nameOfCategory = category.name);
     });
 
 
@@ -41,7 +45,7 @@ export class DepartmentComponent implements OnInit {
         this.title = data.title;
       }),
       switchMap((data: { url: string }) =>
-        this.http.get(data.url + this.idOfSubCategory)
+        this.http.get(data.url + this.idCategory)
       )
     ).subscribe((response: Item[]) => {
       this.response = response;

@@ -4,22 +4,23 @@ import {Product} from "../models/Product";
 import {ProductService} from "../services/product-service";
 import {DialogConfirmDeleteComponent} from "../dialog-confirm-delete/dialog-confirm-delete.component";
 import {DialogAdminProductComponent} from "../dialog-admin-product/dialog-admin-product.component";
-import {SubCategory} from "../models/SubCategory";
 import {SubCategoryService} from "../services/subCategory-service";
+import {CategoryService} from "../services/category-service";
+import {Category} from "../models/Category";
 
 @Component({
   selector: 'app-manage-product',
   templateUrl: './manage-product.component.html',
   styleUrls: ['./manage-product.component.css'],
-  providers: [ProductService, SubCategoryService]
+  providers: [ProductService, CategoryService, SubCategoryService]
 })
 export class ManageProductComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns = ['name', 'subCategoryName', 'price', 'edit', 'delete'];
-  subCategories: Array<SubCategory>;
+  displayedColumns = ['name', 'categoryName', 'price', 'edit', 'delete'];
+  categories: Array<Category>;
   dataSource: any;
   pageSizeOptions = [5, 10, 25, 50];
   pageSize: Number;
@@ -28,17 +29,17 @@ export class ManageProductComponent implements OnInit {
   selectedValue: string;
   products: Array<Product>;
 
-  constructor(public productService: ProductService, public subCategoryService: SubCategoryService, public dialog: MatDialog, public dialogConfirm: MatDialog) {
+  constructor(public productService: ProductService, public subCategoryService: SubCategoryService, public categoryService: CategoryService, public dialog: MatDialog, public dialogConfirm: MatDialog) {
   }
 
   ngOnInit() {
-    this.subCategoryService.getAllSubCategories().subscribe(data => {
-      this.subCategories = data as Array<SubCategory>
+    this.categoryService.getAllCategories().subscribe(data => {
+      this.categories = data as Array<Category>
     }, this.searchErrorHandler);
   }
 
-  public findProductsBySubCategoryId() {
-    this.productService.findAllProductsBySubCategoryId(this.selectedValue).subscribe(data => this.dataHandler(data), this.searchErrorHandler);
+  public findProductsByCategoryId() {
+    this.productService.findAllProductsCategoryId(this.selectedValue).subscribe(data => this.dataHandler(data), this.searchErrorHandler);
   }
 
   public dataHandler(products: Array<Product>) {
@@ -116,7 +117,6 @@ export class ManageProductComponent implements OnInit {
   }
 
   public searchErrorHandler(error: any) {
-    console.log(error);
     alert("Вході виконання програми виникла помилка, спробуйте пізніше");
   }
 

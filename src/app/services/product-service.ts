@@ -33,6 +33,10 @@ export class ProductService {
     return this.http.get<Product[]>(BASEURL + "/products/subCategory/" + id);
   }
 
+  findAllProductsCategoryId(id: string): Observable<Product[]> {
+    return this.http.get<Product[]>(BASEURL + "/products/category/" + id);
+  }
+
   createProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(BASEURL + "/admin/product", product);
   }

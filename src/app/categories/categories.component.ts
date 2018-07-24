@@ -42,7 +42,11 @@ export class CategoriesComponent implements OnInit {
     }
   }
 
-  findAllSubCategoriesByCategoryId(categoryId: string) {
+  /*findAllSubCategoriesByCategoryId(categoryId: string) {
     this.route.navigate(["subCategories/category/", categoryId]);
+  }*/
+
+  findAllProductsByCategoryId(categoryId:string) {
+    this.route.navigate(["products/category/", categoryId]);
   }
 }

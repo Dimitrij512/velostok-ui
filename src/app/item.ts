@@ -6,6 +6,8 @@ export interface Item {
   name: string;
   title: string;
   category: string;
+  categoryId:string;
+  categoryName:string;
   price: number;
   description: string;
   image: string;

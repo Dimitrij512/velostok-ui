@@ -6,19 +6,19 @@
   <div class="row">
     <div class="col-lg-3 col-md-6 mb-lg-0 mb-4 card-product" *ngFor="let category of categories">
       <div class="card align-items-center">
-        <div class="view overlay" (click)="findAllSubCategoriesByCategoryId(category.id)">
+        <div class="view overlay" (click)="findAllProductsByCategoryId(category.id)">
           <img src={{category.image}} class="card-img-top" alt="">
           <a>
             <div class="mask rgba-white-slight"></div>
           </a>
         </div>
         <div class="card-body text-center">
-          <a (click)="findAllSubCategoriesByCategoryId(category.id)" class="grey-text">
+          <a (click)="findAllProductsByCategoryId(category.id)" class="grey-text">
             <h5>{{truncate(category.name)}}</h5>
           </a>
           <h5>
             <strong>
-              <a (click)="findAllSubCategoriesByCategoryId(category.id)" class="dark-grey-text">{{truncate(category.name)}}</a>
+              <a (click)="findAllProductsByCategoryId(category.id)" class="dark-grey-text">{{truncate(category.name)}}</a>
             </strong>
           </h5>
         </div>

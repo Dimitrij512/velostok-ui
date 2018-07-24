@@ -3,24 +3,24 @@ import {MAT_DIALOG_DATA, MatDialogRef, MatSnackBar} from "@angular/material";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ProductService} from "../services/product-service";
 import {Product} from "../models/Product";
-import {SubCategoryService} from "../services/subCategory-service";
-import {SubCategory} from "../models/SubCategory";
+import {CategoryService} from "../services/category-service";
+import {Category} from "../models/Category";
 
 @Component({
   selector: 'app-dialog-admin-product',
   templateUrl: './dialog-admin-product.component.html',
   styleUrls: ['./dialog-admin-product.component.css'],
-  providers: [ProductService, SubCategoryService]
+  providers: [ProductService, CategoryService]
 })
 export class DialogAdminProductComponent implements OnInit {
 
   public productForm: FormGroup;
-  public subCategories: Array<SubCategory>;
+  public categories: Array<Category>;
 
-  constructor(public productService: ProductService, public subCategoryService: SubCategoryService, public dialogProduct: MatDialogRef<DialogAdminProductComponent>,
+  constructor(public productService: ProductService, public categoryService: CategoryService, public dialogProduct: MatDialogRef<DialogAdminProductComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any, public fb: FormBuilder, public snackBar: MatSnackBar) {
 
-    this.subCategoryService.getAllSubCategories().subscribe(subCategories => this.subCategories = subCategories as Array<SubCategory>);
+    this.categoryService.getAllCategories().subscribe(categories => this.categories = categories as Array<Category>);
 
     this.createProductForm(data);
   }
@@ -32,7 +32,7 @@ export class DialogAdminProductComponent implements OnInit {
     this.productForm = this.fb.group({
       name: [data.name, [Validators.required, Validators.maxLength(50)]],
       title: [data.title, [Validators.required]],
-      subCategoryName: [data.subCategoryName],
+      categoryName: [data.categoryName],
       price: [data.price],
       description: [data.description],
       image: [data.image],
@@ -48,8 +48,8 @@ export class DialogAdminProductComponent implements OnInit {
     product.id = this.data.id;
     product.name = field.name;
     product.title = field.title;
-    product.subCategoryName = field.subCategoryName;
-    product.subCategoryId =this.subCategories.find(subcategory => subcategory.name == field.subCategoryName).id;
+    product.categoryName = field.categoryName;
+    product.categoryId = this.categories.find(category => category.name == field.categoryName).id;
     product.price = field.price;
     product.description = field.description;
     product.image = field.image;
