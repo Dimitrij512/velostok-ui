@@ -1,7 +1,9 @@
 .card-product{
   margin-top: 20px;
 }
-
+.card {
+  height: 400px;
+}
 img {
   height: 350px;
   width: 190px;
