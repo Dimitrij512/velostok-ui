@@ -1,4 +1,3 @@
-
 <section class="text-center my-5">
 
   <h2 class="h1-responsive font-weight-bold text-center my-5">Категорія : {{nameOfCategory}}</h2>
@@ -18,7 +17,8 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-3 col-md-6 mb-lg-0 mb-4 card-product" *ngFor="let entry of response | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 7, currentPage: p }; let i = index">
+    <div class="col-lg-3 col-md-6 mb-lg-0 mb-4 card-product"
+         *ngFor="let entry of response | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 25, currentPage: p }; let i = index">
       <div class="card align-items-center">
         <div class="view overlay" (click)="getProduct(entry.id)">
           <img src={{entry.image}} class="card-img-top" alt="">
@@ -51,6 +51,7 @@
     </div>
   </div>
 
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
-
+  <div class="paginator">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
 </section>
