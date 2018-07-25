@@ -109,7 +109,7 @@ import { SubCategoriesComponent } from './sub-categories/sub-categories.componen
     MatSelectModule,
     MatInputModule,
     MatSnackBarModule,
-    MatTooltipModule
+    MatTooltipModule,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [],
