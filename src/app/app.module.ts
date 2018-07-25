@@ -49,6 +49,9 @@ import {DialogAdminSuperCategoryComponent} from './dialog-admin-super-category/d
 import {DialogAdminSubCategoryComponent} from './dialog-admin-sub-category/dialog-admin-sub-category.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { SubCategoriesComponent } from './sub-categories/sub-categories.component';
+import {Ng2SearchPipeModule} from "ng2-search-filter";
+import {Ng2OrderModule} from "ng2-order-pipe";
+import {NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
 
@@ -110,6 +113,9 @@ import { SubCategoriesComponent } from './sub-categories/sub-categories.componen
     MatInputModule,
     MatSnackBarModule,
     MatTooltipModule,
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
+    NgxPaginationModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [],
