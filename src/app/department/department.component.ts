@@ -24,6 +24,7 @@ export class DepartmentComponent implements OnInit {
   nameOfCategory: string;
   idCategory:string;
   response: Item[];
+  filter:string;
 
   constructor(private readonly route: ActivatedRoute,
               private readonly http: HttpClient,
@@ -67,5 +68,14 @@ export class DepartmentComponent implements OnInit {
   getProduct(idProduct: string) {
     this.router.navigate(["product", idProduct]);
   }
+
+  //sorting
+  key: string = 'name';
+  reverse: boolean = false;
+  sort(key){
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
+  p: number = 1;
 
 }

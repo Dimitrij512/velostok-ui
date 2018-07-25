@@ -113,6 +113,8 @@ import {NgxPaginationModule} from "ngx-pagination";
     MatInputModule,
     MatSnackBarModule,
     MatTooltipModule,
+    BrowserModule,
+    FormsModule,
     Ng2SearchPipeModule,
     Ng2OrderModule,
     NgxPaginationModule
