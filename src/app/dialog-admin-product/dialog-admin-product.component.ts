@@ -29,6 +29,7 @@ export class DialogAdminProductComponent implements OnInit {
   }
 
   createProductForm(data: any) {
+    console.log(data);
     this.productForm = this.fb.group({
       name: [data.name, [Validators.required, Validators.maxLength(50)]],
       title: [data.title, [Validators.required]],
@@ -37,6 +38,7 @@ export class DialogAdminProductComponent implements OnInit {
       description: [data.description],
       image: [data.image],
       largeImage: [data.largeImage],
+      available:[data.available]
     })
   }
 
@@ -54,6 +56,7 @@ export class DialogAdminProductComponent implements OnInit {
     product.description = field.description;
     product.image = field.image;
     product.largeImage = field.largeImage;
+    product.available = field.available;
 
     this.createOrUpdateProduct(product);
   }

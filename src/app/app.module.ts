@@ -14,7 +14,7 @@ import {HttpModule} from '@angular/http';
 import {
   MatBadgeModule,
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatCheckboxModule,
   MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
@@ -23,7 +23,7 @@ import {
   MatMenuModule,
   MatPaginatorModule,
   MatSelectModule,
-  MatSidenavModule,
+  MatSidenavModule, MatSlideToggleModule,
   MatSnackBarModule, MatSortModule,
   MatTableModule,
   MatToolbarModule, MatTooltipModule
@@ -117,7 +117,9 @@ import {NgxPaginationModule} from "ngx-pagination";
     FormsModule,
     Ng2SearchPipeModule,
     Ng2OrderModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatSlideToggleModule,
+    MatCheckboxModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [],

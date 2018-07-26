@@ -26,7 +26,6 @@ export class SuperCategoryService {
   }
 
   findSuperCategoryById(id:string):Observable<SuperCategory>{
-    console.log(BASEURL + "/superCategory/" + id);
     return this.http.get<SuperCategory>(BASEURL + "/superCategory/" + id);
   }
 

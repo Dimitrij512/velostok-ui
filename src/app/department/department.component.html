@@ -33,14 +33,14 @@
           <h5>
             <strong>
               <a (click)="getProduct(entry.id)" class="dark-grey-text">{{truncate(entry.title)}}
-                <span class="badge badge-pill danger-color">NEW</span>
+<!--                <span class="badge badge-pill danger-color">{{entry.available}}</span>-->
               </a>
             </strong>
           </h5>
           <h5 class="font-weight-bold blue-text">
             <strong>{{entry.price}} грн.</strong>
           </h5>
-          <button mat-icon-button color="primary"
+          <button [disabled]="!entry.available" mat-icon-button color="primary"
                   class="centered"
                   color="primary"
                   (click)="addToCart(entry)">

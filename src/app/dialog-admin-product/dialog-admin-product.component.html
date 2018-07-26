@@ -31,6 +31,9 @@
     <mat-form-field>
       <input matInput placeholder="Зображення мале" formControlName="largeImage" required>
     </mat-form-field>
+
+    <mat-checkbox formControlName="available">в наявності</mat-checkbox>
+
     <button [disabled]="!productForm.valid" class="" mat-raised-button color="primary">Зберегти дані</button>
   </div>
 </form>
