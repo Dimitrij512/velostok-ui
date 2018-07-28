@@ -14,6 +14,9 @@
     <button mat-icon-button>
       <mat-icon (click)="sort('price')">monetization_on</mat-icon>
     </button>
+    <button mat-icon-button>
+      <mat-icon (click)="sort('available')">remove_red_eye</mat-icon>
+    </button>
   </div>
 
   <div class="row">
@@ -33,7 +36,6 @@
           <h5>
             <strong>
               <a (click)="getProduct(entry.id)" class="dark-grey-text">{{truncate(entry.title)}}
-<!--                <span class="badge badge-pill danger-color">{{entry.available}}</span>-->
               </a>
             </strong>
           </h5>
@@ -46,6 +48,7 @@
                   (click)="addToCart(entry)">
             <mat-icon>shopping_cart</mat-icon>
           </button>
+          <span class="badge badge-pill theme-green">{{messageIsAvailable(entry.available)}}</span>
         </div>
       </div>
     </div>

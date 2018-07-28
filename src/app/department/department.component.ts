@@ -78,4 +78,8 @@ export class DepartmentComponent implements OnInit {
   }
   p: number = 1;
 
+  messageIsAvailable(status: boolean){
+    return status == true ? 'в наявності' : '';
+  }
+
 }
