@@ -1,7 +1,9 @@
-
-<mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [type]="'carousel-thumbnails'" [animation]="'fade'">
+<mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [type]="'carousel-thumbnails'"
+              [animation]="'fade'">
   <mdb-slide>
-    <img class="d-block w-100" src="http://spelli.com.ua/image/cache/data/main slider/slide-3-1920x700_2016-01-1920x700.jpg" alt="First slide">
+    <img class="d-block w-100"
+         src="http://spelli.com.ua/image/cache/data/main slider/slide-3-1920x700_2016-01-1920x700.jpg"
+         alt="First slide">
     <div class="carousel-caption">
       <div class="animated fadeInDown">
         <h3 class="h3-responsive">Мега швидкий</h3>
@@ -11,7 +13,9 @@
   </mdb-slide>
 
   <mdb-slide>
-    <img class="d-block w-100" src="http://spelli.com.ua/image/cache/data/main slider/slide-3-1920x700_2016-01-1920x700.jpg" alt="Second slide">
+    <img class="d-block w-100"
+         src="http://spelli.com.ua/image/cache/data/main slider/slide-3-1920x700_2016-01-1920x700.jpg"
+         alt="Second slide">
     <div class="carousel-caption">
       <div class="animated fadeInDown">
         <h3 class="h3-responsive">Для гір</h3>
@@ -21,7 +25,9 @@
   </mdb-slide>
 
   <mdb-slide>
-    <img class="d-block w-100" src="http://spelli.com.ua/image/cache/data/main slider/slide-3-1920x700_2016-02-1920x700.jpg" alt="Third slide">
+    <img class="d-block w-100"
+         src="http://spelli.com.ua/image/cache/data/main slider/slide-3-1920x700_2016-02-1920x700.jpg"
+         alt="Third slide">
     <div class="carousel-caption">
       <div class="animated fadeInDown">
         <h3 class="h3-responsive">Спорт</h3>
@@ -37,6 +43,30 @@
       <div class="col-md-12">
         <div class="wel_header">
           <h2>Ласкаво просимо до нашого магазину</h2>
+
+          <section class="text-center my-5">
+            <p class="grey-text text-center w-responsive mx-auto mb-5">Тут ви зможете знайти товари які підійдуть для
+              Вас для Вашого бізнесу</p>
+
+            <div class="row">
+              <div class="col-lg-3 col-md-6 mb-lg-0 mb-4" *ngFor="let entry of entries">
+                <div class="card collection-card z-depth-1-half">
+                  <div class="view zoom">
+                    <img [src]="entry.image" class="img-fluid sup-img" alt="{{entry.name}}"
+                         (click)="findAllCategoriesBySuperCategoryId(entry.id)">
+                    <div class="stripe dark">
+                      <a>
+                        <p>{{entry.name}}
+                          <i class="fa fa-angle-right"></i>
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           <p>Наші пріоритети та наші цінності</p>
         </div>
       </div>
@@ -90,30 +120,9 @@
                 <i class="fa fa-credit-card-alt"></i>
               </div>
               <h4>Розрахункова система</h4>
-              <p>Розрахунок ви зможете здійснити як за допомогою карти любого банку України так і готівкою при доствці товару</p>
+              <p>Розрахунок ви зможете здійснити як за допомогою карти любого банку України так і готівкою при доствці
+                товару</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="text-center my-5">
-  <h2 class="h1-responsive font-weight-bold text-center my-5">Наші категорії</h2>
-  <p class="grey-text text-center w-responsive mx-auto mb-5">Тут ви зможете знайти товари які підійдуть для Вас для Вашого бізнесу</p>
-
-  <div class="row">
-    <div class="col-lg-3 col-md-6 mb-lg-0 mb-4" *ngFor = "let entry of entries" >
-      <div class="card collection-card z-depth-1-half">
-        <div class="view zoom">
-          <img [src]="entry.image" class="img-fluid sup-img" alt="{{entry.name}}" (click)="findAllCategoriesBySuperCategoryId(entry.id)">
-          <div class="stripe dark">
-            <a>
-              <p>{{entry.name}}
-                <i class="fa fa-angle-right"></i>
-              </p>
-            </a>
           </div>
         </div>
       </div>
