@@ -48,7 +48,7 @@
             </strong>
           </h5>
           <h5 class="font-weight-bold blue-text">
-            <strong>{{entry.price}} грн.</strong>
+            <strong>{{roundingNumber(entry.price, currency)}} грн.</strong>
           </h5>
           <button [disabled]="!entry.available" mat-icon-button color="primary"
                   class="centered"

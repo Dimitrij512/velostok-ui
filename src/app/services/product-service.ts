@@ -3,6 +3,7 @@ import {BASEURL} from "../constants/projectsConstants";
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs/index";
 import {Product} from "../models/Product";
+import {Currency} from "../models/Currency";
 
 @Injectable()
 export class ProductService {

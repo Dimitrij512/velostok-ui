@@ -6,6 +6,8 @@ import {switchMap, tap} from 'rxjs/operators';
 import {Item} from '../item';
 import {ShoppingCartService} from '../shopping-cart.service';
 import {CategoryService} from "../services/category-service";
+import {Currency} from "../models/Currency";
+import {CURRENCY_URL} from "../constants/projectsConstants";
 
 interface DepartmentData {
   id: string,
@@ -26,6 +28,7 @@ export class DepartmentComponent implements OnInit {
   response: Item[];
   filter:string;
   loaded:boolean;
+  currency:number;
 
   constructor(private readonly route: ActivatedRoute,
               private readonly http: HttpClient,
@@ -35,6 +38,10 @@ export class DepartmentComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.http.get<Currency>(CURRENCY_URL).subscribe(currency =>{
+      this.currency = currency.USD_UAH.val;
+    });
 
     this.route.params.subscribe(params => {
       this.idCategory = params['id'];
@@ -82,6 +89,12 @@ export class DepartmentComponent implements OnInit {
 
   messageIsAvailable(status: boolean){
     return status == true ? 'в наявності' : '';
+  }
+
+  roundingNumber(price:number, currency:number){
+    let priceProduct = price * currency;
+
+    return priceProduct.toFixed(2);
   }
 
 }

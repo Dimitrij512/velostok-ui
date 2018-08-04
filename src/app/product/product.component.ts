@@ -4,6 +4,8 @@ import {ShoppingCartService} from "../shopping-cart.service";
 import {Product} from "../models/Product";
 import {switchMap} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
+import {Currency} from "../models/Currency";
+import {CURRENCY_URL} from "../constants/projectsConstants";
 
 @Component({
   selector: 'app-product',
@@ -14,6 +16,7 @@ export class ProductComponent implements OnInit {
   idProduct: string;
   public product: Product;
   loaded:boolean;
+  currency:number;
 
   constructor(private readonly route: ActivatedRoute,
               private readonly cart: ShoppingCartService,
@@ -21,6 +24,10 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.http.get<Currency>(CURRENCY_URL).subscribe(currency =>{
+        this.currency = currency.USD_UAH.val;
+    });
+
     this.route.params.subscribe(params => {
       this.idProduct = params['id'];
     });
@@ -42,6 +49,12 @@ export class ProductComponent implements OnInit {
 
   goBack() {
     window.history.back();
+  }
+
+  roundingNumber(price:number, currency:number){
+    let priceProduct = price * currency;
+
+    return priceProduct.toFixed(2);
   }
 
 }
