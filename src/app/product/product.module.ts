@@ -6,6 +6,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import {ProductComponent} from "./product.component";
 import {ProductRoutingModule} from "./product.routing";
+import {MatProgressBarModule} from "@angular/material";
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import {ProductRoutingModule} from "./product.routing";
     MatButtonModule,
     MatCardModule,
     MatGridListModule,
+    MatProgressBarModule
   ],
   declarations: [ProductComponent]
 })

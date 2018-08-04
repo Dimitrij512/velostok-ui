@@ -6,7 +6,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { DepartmentComponent } from './department.component';
 import { HttpClientModule } from '@angular/common/http';
 import {DepartmentRoutingModule} from "./department-routing";
-import {MatFormFieldModule, MatIconModule, MatInputModule} from "@angular/material";
+import {MatFormFieldModule, MatIconModule, MatInputModule, MatProgressBarModule} from "@angular/material";
 import {FormsModule} from "@angular/forms";
 import {NgxPaginationModule} from "ngx-pagination";
 import {Ng2OrderModule} from "ng2-order-pipe";
@@ -26,7 +26,8 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     FormsModule,
     Ng2SearchPipeModule,
     Ng2OrderModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatProgressBarModule
   ],
   declarations: [DepartmentComponent],
   bootstrap: [DepartmentComponent]

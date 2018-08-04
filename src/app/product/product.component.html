@@ -1,3 +1,11 @@
+<div *ngIf="loaded; then prod else loading"></div>
+
+<ng-template #loading>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-template>
+
+
+<ng-template #prod>
 <mat-card class="example-card">
   <mat-card-header>
     <mat-card-title>{{product.name}}</mat-card-title>
@@ -12,4 +20,5 @@
     <button mat-button>В корзину</button>
   </mat-card-actions>
 </mat-card>
+</ng-template>
 

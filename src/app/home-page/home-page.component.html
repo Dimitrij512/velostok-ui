@@ -48,24 +48,34 @@
             <p class="grey-text text-center w-responsive mx-auto mb-5">Тут ви зможете знайти товари які підійдуть для
               Вас для Вашого бізнесу</p>
 
-            <div class="row">
-              <div class="col-lg-3 col-md-6 mb-lg-0 mb-4" *ngFor="let entry of entries">
-                <div class="card collection-card z-depth-1-half">
-                  <div class="view zoom">
-                    <img [src]="entry.image" class="img-fluid sup-img" alt="{{entry.name}}"
-                         (click)="findAllCategoriesBySuperCategoryId(entry.id)">
-                    <div class="stripe dark">
-                      <a>
-                        <p>{{entry.name}}
-                          <i class="fa fa-angle-right"></i>
-                        </p>
-                      </a>
+
+            <div *ngIf="loaded; then superCategories else loading"></div>
+
+            <ng-template #loading>
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </ng-template>
+
+            <ng-template #superCategories>
+              <div class="row">
+                <div class="col-lg-3 col-md-6 mb-lg-0 mb-4" *ngFor="let entry of entries">
+                  <div class="card collection-card z-depth-1-half">
+                    <div class="view zoom">
+                      <img [src]="entry.image" class="img-fluid sup-img" alt="{{entry.name}}"
+                           (click)="findAllCategoriesBySuperCategoryId(entry.id)">
+                      <div class="stripe dark">
+                        <a>
+                          <p>{{entry.name}}
+                            <i class="fa fa-angle-right"></i>
+                          </p>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </ng-template>
           </section>
+
 
           <p>Наші пріоритети та наші цінності</p>
         </div>
@@ -119,7 +129,7 @@
               <div class="welcome_icon">
                 <i class="fa fa-credit-card-alt"></i>
               </div>
-              <h4>Розрахункова система</h4>
+              <h4>Розрахунок</h4>
               <p>Розрахунок ви зможете здійснити як за допомогою карти любого банку України так і готівкою при доствці
                 товару</p>
             </div>

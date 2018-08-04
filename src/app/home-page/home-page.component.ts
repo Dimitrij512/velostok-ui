@@ -14,10 +14,12 @@ import {SuperCategoryService} from "../services/super-category-service";
 })
 export class HomePageComponent implements OnInit {
   entries: Array<SuperCategory>;
+  loaded:boolean;
 
   constructor(private superCategoryService: SuperCategoryService, private router: Router) {
     superCategoryService.getAllSuperCategories().subscribe(categories => {
       this.entries = categories;
+      this.loaded = true;
     })
 
   }

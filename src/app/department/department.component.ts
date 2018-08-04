@@ -25,6 +25,7 @@ export class DepartmentComponent implements OnInit {
   idCategory:string;
   response: Item[];
   filter:string;
+  loaded:boolean;
 
   constructor(private readonly route: ActivatedRoute,
               private readonly http: HttpClient,
@@ -50,6 +51,7 @@ export class DepartmentComponent implements OnInit {
       )
     ).subscribe((response: Item[]) => {
       this.response = response;
+      this.loaded = true;
     });
   }
 

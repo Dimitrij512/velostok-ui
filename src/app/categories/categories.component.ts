@@ -16,6 +16,7 @@ export class CategoriesComponent implements OnInit {
   categories: Array<Category>;
   superCategory:SuperCategory;
   idSuperCategory: string;
+  loaded:boolean;
 
 
   constructor(private router: ActivatedRoute,
@@ -30,6 +31,7 @@ export class CategoriesComponent implements OnInit {
       this.superCategoryService.findSuperCategoryById(this.idSuperCategory).subscribe(superCategory => this.superCategory = superCategory);
       this.categoryService.findAllCategoriesBySuperCategoryId(this.idSuperCategory).subscribe(categories => {
         this.categories = categories;
+        this.loaded = true;
       });
     });
   }
@@ -41,10 +43,6 @@ export class CategoriesComponent implements OnInit {
       return str.substr(0, 12) + "...";
     }
   }
-
-  /*findAllSubCategoriesByCategoryId(categoryId: string) {
-    this.route.navigate(["subCategories/category/", categoryId]);
-  }*/
 
   findAllProductsByCategoryId(categoryId:string) {
     this.route.navigate(["products/category/", categoryId]);

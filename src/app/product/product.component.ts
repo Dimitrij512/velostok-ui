@@ -13,6 +13,7 @@ import {HttpClient} from "@angular/common/http";
 export class ProductComponent implements OnInit {
   idProduct: string;
   public product: Product;
+  loaded:boolean;
 
   constructor(private readonly route: ActivatedRoute,
               private readonly cart: ShoppingCartService,
@@ -29,6 +30,7 @@ export class ProductComponent implements OnInit {
         this.http.get(data.url + this.idProduct)
       )
     ).subscribe((response: Product) => {
+      this.loaded = true;
       this.product = response;
     });
   }

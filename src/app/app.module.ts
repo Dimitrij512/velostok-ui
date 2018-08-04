@@ -21,7 +21,7 @@ import {
   MatInputModule,
   MatListModule,
   MatMenuModule,
-  MatPaginatorModule,
+  MatPaginatorModule, MatProgressBarModule,
   MatSelectModule,
   MatSidenavModule, MatSlideToggleModule,
   MatSnackBarModule, MatSortModule,
@@ -119,7 +119,8 @@ import {NgxPaginationModule} from "ngx-pagination";
     Ng2OrderModule,
     NgxPaginationModule,
     MatSlideToggleModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatProgressBarModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [],
