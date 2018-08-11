@@ -25,7 +25,7 @@ import {
   MatSelectModule,
   MatSidenavModule, MatSlideToggleModule,
   MatSnackBarModule, MatSortModule,
-  MatTableModule,
+  MatTableModule, MatTabsModule,
   MatToolbarModule, MatTooltipModule
 } from "@angular/material";
 import {ManageCategoryComponent} from './manage-category/manage-category.component';
@@ -120,7 +120,8 @@ import {NgxPaginationModule} from "ngx-pagination";
     NgxPaginationModule,
     MatSlideToggleModule,
     MatCheckboxModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatTabsModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [],

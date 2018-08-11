@@ -9,6 +9,7 @@ import {ManageSuperCategoryComponent} from "../manage-super-category/manage-supe
 import {ManageSubCategoryComponent} from "../manage-sub-category/manage-sub-category.component";
 import {CategoriesComponent} from "../categories/categories.component";
 import {SubCategoriesComponent} from "../sub-categories/sub-categories.component";
+import {LoginComponent} from "../login/login.component";
 
 
 const routes: Routes = [
@@ -59,6 +60,10 @@ const routes: Routes = [
   {
     path:'payment',
     component:PaymentAndDeliveryComponent,
+  },
+  {
+    path:'login',
+    component:LoginComponent,
   }
 ];
 

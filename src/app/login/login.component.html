@@ -1,1 +1,36 @@
-page work
+<mat-tab-group>
+  <mat-tab label="Ввійти">
+    <div class="card text-center card-login">
+      <div class="card-header">
+        Введіть логін та пароль
+      </div>
+      <div class="card-body">
+        <div class="login-container">
+          <mat-form-field>
+            <input matInput placeholder="Логін" [(ngModel)]="loginee">
+            <button mat-button *ngIf="loginee" matSuffix mat-icon-button aria-label="Clear" (click)="loginee=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Пароль" [(ngModel)]="password">
+            <button mat-button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          <button mat-button color="primary">Ввійти</button>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Зареєструватися">
+    <div class="card text-center card-login">
+      <div class="card-header">
+        Сервіс не доступний
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Вибачте, але на даний момент сервіс знаходиться в розробці.</h5>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
