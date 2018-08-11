@@ -1,3 +1,4 @@
+<!--
 <section class="text-center my-5">
 
   <h2 class="h1-responsive font-weight-bold text-center my-5">Категорія : {{nameOfCategory}}</h2>
@@ -66,3 +67,60 @@
   </div>
   </ng-template>
 </section>
+
+
+-->
+<section class="text-center my-5">
+  <h2 class="h1-responsive font-weight-bold text-center my-5">Категорія : {{nameOfCategory}}</h2>
+  <mat-form-field>
+    <input matInput type="text" name="search" [(ngModel)]="filter" placeholder="Фільтр">
+  </mat-form-field>
+  <div class="button-row">
+    <button mat-icon-button>
+      <mat-icon (click)="sort('name')">sort_by_alpha</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon (click)="sort('price')">monetization_on</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon (click)="sort('available')">remove_red_eye</mat-icon>
+    </button>
+  </div>
+  <ng-template #loading>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </ng-template>
+
+  <div class="row">
+    <div class="index-content">
+      <div class="container">
+        <a
+          *ngFor="let entry of response | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 48, currentPage: p }">
+          <div class="col-lg-3 card-product">
+            <div class="card">
+              <img src={{entry.image}} (click)="getProduct(entry.id)">
+              <h5>{{truncate(entry.name)}}</h5>
+              <p>{{truncate(entry.title)}}</p>
+              <div>
+                 <button [disabled]="true" mat-icon-button cart-button>
+                   <mat-icon aria-label="магазин" (click)="addToCart(entry)">shopping_cart</mat-icon>
+                 </button>
+                <p>{{roundingNumber(entry.price, currency)}} грн.</p>
+                <div *ngIf="entry.available; then avliable else notAvaliable"></div>
+                <ng-template #avliable>
+                  <div class="badge badge-success float-right">в наявності</div>
+                </ng-template>
+                <ng-template #notAvaliable>
+                  <div class="badge badge-dark float-right">відсутній</div>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!--<div class="paginator">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>-->
