@@ -19,31 +19,25 @@
 
 </html>
 -->
-<!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>Velostok</title>
   <base href="/">
-
-  <!-- reduced for brevity -->
-
-  <!-- inline spinner styles to be able to display spinner right away -->
-  <style type="text/css">
-
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Mono:300" rel="stylesheet">
+  <link href="/assets/indigo-pink.css" rel="stylesheet">
 </head>
 <body>
-<app-root> <!-- selector from app.component.ts -->
-
-  <!-- loading layout replaced by app after startupp -->
+<app-root>
   <div class="app-loading">
     <div class="logo"></div>
     <svg class="spinner" viewBox="25 25 50 50">
       <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
     </svg>
   </div>
-
 </app-root>
 </body>
 </html>

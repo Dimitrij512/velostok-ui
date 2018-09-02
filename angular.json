@@ -24,6 +24,7 @@
               "node_modules/font-awesome/scss/font-awesome.scss",
               "node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
               "node_modules/angular-bootstrap-md/scss/mdb-free.scss",
+              "src/styles-app-loading.scss",
               "src/styles.scss"
             ],
             "scripts": [
@@ -80,6 +81,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
+              "src/styles-app-loading.scss",
               "src/styles.scss"
             ],
             "assets": [
