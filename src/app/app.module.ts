@@ -1,7 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 
-
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -9,7 +8,7 @@ import {RoutingModule} from "./routing/routing.module";
 import {HomePageComponent} from './home-page/home-page.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CartIconComponent} from "./cart-icon/cart-icon.component";
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import {
   MatBadgeModule,
@@ -52,6 +51,19 @@ import { SubCategoriesComponent } from './sub-categories/sub-categories.componen
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import {Ng2OrderModule} from "ng2-order-pipe";
 import {NgxPaginationModule} from "ngx-pagination";
+import {AuthInterceptor} from "./interceptors/AuthInterceptor";
+import {ErrorInterceptor} from "./interceptors/ErrorInterceptor";
+import {LocalStorageService} from "./services/locastorage.service";
+import {SharedService} from "./services/sharedService";
+import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from "angular4-social-login";
+import {AvatarModule} from "ngx-avatar";
+
+let config = new AuthServiceConfig([
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("1968659599860933")
+  }
+]);
 
 @NgModule({
 
@@ -77,6 +89,7 @@ import {NgxPaginationModule} from "ngx-pagination";
   ],
   entryComponents: [DialogAdminCategoryComponent, DialogAdminProductComponent, DialogConfirmDeleteComponent, DialogAdminSuperCategoryComponent, DialogAdminSubCategoryComponent],
   imports: [
+    SocialLoginModule.initialize(config),
     MDBBootstrapModule.forRoot(),
     CarouselModule.forRoot(),
     ButtonsModule,
@@ -121,11 +134,23 @@ import {NgxPaginationModule} from "ngx-pagination";
     MatSlideToggleModule,
     MatCheckboxModule,
     MatProgressBarModule,
-    MatTabsModule
+    MatTabsModule,
+    AvatarModule
   ],
-  schemas: [NO_ERRORS_SCHEMA],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    },
+    LocalStorageService,
+    SharedService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

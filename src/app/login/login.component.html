@@ -1,36 +1,34 @@
-<mat-tab-group>
-  <mat-tab label="Ввійти">
-    <div class="card text-center card-login">
-      <div class="card-header">
-        Введіть логін та пароль
-      </div>
-      <div class="card-body">
-        <div class="login-container">
-          <mat-form-field>
-            <input matInput placeholder="Логін" [(ngModel)]="loginee">
-            <button mat-button *ngIf="loginee" matSuffix mat-icon-button aria-label="Clear" (click)="loginee=''">
-              <mat-icon>close</mat-icon>
-            </button>
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Пароль" [(ngModel)]="password">
-            <button mat-button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
-              <mat-icon>close</mat-icon>
-            </button>
-          </mat-form-field>
-          <button mat-button color="primary">Ввійти</button>
-        </div>
+<div class="login-form">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h2 class="text-center">Ввійти</h2>
+    <div class="form-group">
+      <div class="example-container">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Електронна пошта" required formControlName="login">
+        </mat-form-field>
       </div>
     </div>
-  </mat-tab>
-  <mat-tab label="Зареєструватися">
-    <div class="card text-center card-login">
-      <div class="card-header">
-        Сервіс не доступний
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Вибачте, але на даний момент сервіс знаходиться в розробці.</h5>
+    <div class="form-group">
+      <div class="example-container">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Пароль" [type]="hide ? 'password' : 'text'" formControlName="password">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
       </div>
     </div>
-  </mat-tab>
-</mat-tab-group>
+    <div class="form-group">
+      <button type="submit" class="btn btn-dark login-btn btn-block">Ввійти</button>
+    </div>
+    <!--    <div class="clearfix">
+          <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+          <a href="#" class="pull-right">Forgot Password?</a>
+        </div>-->
+    <div class="or-seperator"><i>або</i></div>
+    <p class="text-center">Увійдіть у свій обліковий запис соціальної мережі</p>
+    <div class="text-center social-btn">
+      <a class="btn btn-primary"(click)="facebookLogin()" ><i class="fa fa-facebook"></i>  Facebook</a>
+      <a href="#" class="btn btn-danger"><i class="fa fa-google"></i>&nbsp; Google</a>
+    </div>
+  </form>
+  <p class="text-center text-muted small">Не заєрестровані? <a href="#">Зараєструватися тут!</a></p>
+</div>

@@ -7,18 +7,23 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link"><mat-icon>input</mat-icon></a>
+      <a class="nav-item nav-link" *ngIf="!isLogin; else loggedOut" routerLink="/login"><mat-icon>input</mat-icon></a>
+      <ng-template #loggedOut>
+
+        <ngx-avatar facebookId="1968659599860933"
+                    name="Haithem Mosbahi" src={{photoUser}}
+                    size="32" [round]="true">
+        </ngx-avatar>
+
+        <a class="nav-item nav-link" (click)="logout()"><mat-icon>logout</mat-icon></a>
+      </ng-template>
       <a class="nav-item nav-link"><app-cart-icon></app-cart-icon></a>
       <a class="nav-item nav-link" routerLink="/">Головна</a>
       <a class="nav-item nav-link" routerLink="payment">Оплата та доставка</a>
-      <a class="nav-item nav-link" [matMenuTriggerFor]="adminPages">Адмінка</a>
-
+      <a class="nav-item nav-link" *ngIf="isLogin && isAdmin" [matMenuTriggerFor]="adminPages">Адмінка</a>
       <mat-menu #adminPages="matMenu">
         <button mat-menu-item *ngFor="let entry of entries" (click)=goToAdminPage(entry.path)>{{entry.title}}</button>
       </mat-menu>
     </div>
   </div>
 </nav>
-
-
-
