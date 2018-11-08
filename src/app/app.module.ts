@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
+import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
@@ -55,7 +55,7 @@ import {AuthInterceptor} from "./interceptors/AuthInterceptor";
 import {ErrorInterceptor} from "./interceptors/ErrorInterceptor";
 import {LocalStorageService} from "./services/locastorage.service";
 import {SharedService} from "./services/sharedService";
-import {AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule} from "angular4-social-login";
+import {AuthServiceConfig, FacebookLoginProvider, SocialLoginModule} from "angular4-social-login";
 import {AvatarModule} from "ngx-avatar";
 
 let config = new AuthServiceConfig([
@@ -93,7 +93,7 @@ export function provideConfig() {
   ],
   entryComponents: [DialogAdminCategoryComponent, DialogAdminProductComponent, DialogConfirmDeleteComponent, DialogAdminSuperCategoryComponent, DialogAdminSubCategoryComponent],
   imports: [
-    SocialLoginModule.initialize(config),
+    SocialLoginModule,
     MDBBootstrapModule.forRoot(),
     CarouselModule.forRoot(),
     ButtonsModule,

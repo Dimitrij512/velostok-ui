@@ -21,8 +21,6 @@ export class MenuComponent implements OnInit {
 
 
   constructor(public router: Router, public sharedService: SharedService, public loginService: LoginService) {
-    console.log(localStorage);
-    console.log(this.photoUser);
 
     this.sharedService.IsUserLoggedIn.subscribe(value => {
       this.isLogin = value;
