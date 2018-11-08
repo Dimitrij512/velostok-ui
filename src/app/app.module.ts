@@ -65,6 +65,10 @@ let config = new AuthServiceConfig([
   }
 ]);
 
+export function provideConfig() {
+  return config;
+}
+
 @NgModule({
 
   declarations: [
@@ -138,6 +142,10 @@ let config = new AuthServiceConfig([
     AvatarModule
   ],
   providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
