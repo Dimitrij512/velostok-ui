@@ -27,9 +27,10 @@ export class LoginService {
 
   }
 
-  login(login: string, password: string): Observable<boolean> {
+   login(login: string, password: string): Observable<boolean> {
 
     this.localStorageService.clearLocalStorage();
+     this.sharedService.userPhoto.next('');
 
     return this.http.post(BASEURL + URLSUFFIXLOGIN, BODYUSERNAME + login + BODYPASSWORD + password,
       {headers: new HttpHeaders().append(HEADERCONTENTTYPE, HEADERVALUE), observe: 'response'})
@@ -49,6 +50,7 @@ export class LoginService {
           return true;
         }
         else {
+          this.sharedService.userPhoto.next('');
           this.sharedService.IsUserLoggedIn.next(false);
           this.sharedService.IsUserAdmin.next(false);
 
