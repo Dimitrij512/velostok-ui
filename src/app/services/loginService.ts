@@ -20,8 +20,6 @@ const BODYPASSWORD: string = '&password=';
 
 @Injectable()
 export class LoginService {
-  private authenticated: boolean;
-  private user: User;
 
   constructor(private localStorageService: LocalStorageService, private sharedService: SharedService,
               private http: HttpClient, private router: Router, @Inject(DOCUMENT) private document: any,
@@ -43,6 +41,7 @@ export class LoginService {
             this.localStorageService.saveRoleToLocalStorage(data.role);
             this.http.get<User>(BASEURL + "/admin/user/" + login).subscribe(user =>{
               this.localStorageService.saveCurrentUsetToLocalStorage(user.email,user.name,user.id,user.photoUrl);
+              this.sharedService.userPhoto.next(user.photoUrl);
             });
             this.moveToHomePage();
           });
@@ -96,6 +95,7 @@ export class LoginService {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
 
     this.authService.authState.subscribe((user) => {
+      console.log(user);
       this.http.post<User>(BASEURL + "/testUser", this.prepareUser(user)).subscribe(data => {
         this.login(data.email, user.photoUrl).subscribe(data=>{
         })

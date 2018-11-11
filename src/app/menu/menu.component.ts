@@ -22,13 +22,13 @@ export class MenuComponent implements OnInit {
 
   constructor(public router: Router, public sharedService: SharedService, public loginService: LoginService) {
 
-    this.sharedService.IsUserLoggedIn.subscribe(value => {
-      this.isLogin = value;
-    });
+    this.sharedService.IsUserLoggedIn.subscribe(value => this.isLogin = value);
 
-    this.sharedService.IsUserAdmin.subscribe(value => {
-      this.isAdmin = value;
-    });
+    this.sharedService.IsUserAdmin.subscribe(value => this.isAdmin = value);
+
+    this.sharedService.userPhoto.subscribe(photo => this.photoUser = photo);
+
+
 
   }
 
