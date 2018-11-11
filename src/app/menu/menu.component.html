@@ -10,9 +10,8 @@
       <a class="nav-item nav-link" *ngIf="!isLogin; else loggedOut" routerLink="/login"><mat-icon>input</mat-icon></a>
       <ng-template #loggedOut>
 
-        <ngx-avatar facebookId="1968659599860933"
-                    name="Haithem Mosbahi" src={{photoUser}}
-                    size="32" [round]="true">
+        <ngx-avatar
+                    name="Velo Stok" src={{photoUser}} size="32" [round]="true">
         </ngx-avatar>
 
         <a class="nav-item nav-link" (click)="logout()"><mat-icon>logout</mat-icon></a>
