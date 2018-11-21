@@ -97,7 +97,6 @@ export class LoginService {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
 
     this.authService.authState.subscribe((user) => {
-      console.log(user);
       this.http.post<User>(BASEURL + "/testUser", this.prepareUser(user)).subscribe(data => {
         this.login(data.email, user.photoUrl).subscribe(data=>{
         })
