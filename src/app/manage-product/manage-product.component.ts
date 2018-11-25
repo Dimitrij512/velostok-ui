@@ -93,7 +93,8 @@ export class ManageProductComponent implements OnInit {
   openDialogConfirmRemove(row): void {
     let dialogRef = this.dialogConfirm.open(DialogConfirmDeleteComponent, {
       width: '500px',
-      minWidth: '500px'
+      minWidth: '500px',
+      maxHeight:'90%'
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -74,7 +74,8 @@ export class ManageSubCategoryComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogAdminSubCategoryComponent, {
       data: row,
       minHeight: '30%',
-      minWidth: '40%'
+      minWidth: '40%',
+      maxHeight:'90%'
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result !== undefined) {
