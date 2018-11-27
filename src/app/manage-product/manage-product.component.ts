@@ -61,8 +61,8 @@ export class ManageProductComponent implements OnInit {
     let product = new Product();
     const dialogRef = this.dialog.open(DialogAdminProductComponent, {
       data: product,
-      minHeight: '30%',
-      minWidth: '40%'
+      width:'60%',
+      height:'70%'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -77,8 +77,8 @@ export class ManageProductComponent implements OnInit {
   updateProduct(row) {
     const dialogRef = this.dialog.open(DialogAdminProductComponent, {
       data: row,
-      minHeight: '30%',
-      minWidth: '40%'
+      width:'60%',
+      height:'70%'
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result !== undefined) {
@@ -92,9 +92,8 @@ export class ManageProductComponent implements OnInit {
 
   openDialogConfirmRemove(row): void {
     let dialogRef = this.dialogConfirm.open(DialogConfirmDeleteComponent, {
-      width: '500px',
-      minWidth: '500px',
-      maxHeight:'90%'
+      maxWidth:'90%',
+      maxHeight:'30%'
     });
 
     dialogRef.afterClosed().subscribe(result => {

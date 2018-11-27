@@ -58,8 +58,8 @@ export class ManageSubCategoryComponent implements OnInit {
   createSubCategory() {
     const dialogRef = this.dialog.open(DialogAdminSubCategoryComponent, {
       data: new Category(),
-      minHeight: '30%',
-      minWidth: '40%'
+      width:'60%',
+      height:'50%'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -73,9 +73,8 @@ export class ManageSubCategoryComponent implements OnInit {
   updateSubCategory(row) {
     const dialogRef = this.dialog.open(DialogAdminSubCategoryComponent, {
       data: row,
-      minHeight: '30%',
-      minWidth: '40%',
-      maxHeight:'90%'
+      width:'60%',
+      height:'50%'
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result !== undefined) {
@@ -89,8 +88,8 @@ export class ManageSubCategoryComponent implements OnInit {
 
   openDialogConfirmRemove(row): void {
     let dialogRef = this.dialogConfirm.open(DialogConfirmDeleteComponent, {
-      width: '500px',
-      minWidth: '500px'
+      maxWidth:'90%',
+      maxHeight:'30%'
     });
 
     dialogRef.afterClosed().subscribe(result => {
