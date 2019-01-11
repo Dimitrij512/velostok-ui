@@ -54,7 +54,7 @@ export class ProductComponent implements OnInit {
   roundingNumber(price:number, currency:number){
     let priceProduct = price * currency;
 
-    return priceProduct.toFixed(2);
+    return priceProduct.toFixed(0);
   }
 
 }
