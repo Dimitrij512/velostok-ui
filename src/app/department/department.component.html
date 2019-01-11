@@ -95,8 +95,8 @@
       <div class="container">
         <a
           *ngFor="let entry of response | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 48, currentPage: p }">
-          <div class="col-lg-3 card-product">
-            <div class="card">
+          <div class="col-lg-3 card-product row mt-5 justify-content-center">
+            <div class="card mx-2 mb-2">
               <img src={{entry.image}} (click)="getProduct(entry.id)">
               <h5>{{truncate(entry.name)}}</h5>
               <p>{{truncate(entry.title)}}</p>

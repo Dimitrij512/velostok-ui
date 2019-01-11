@@ -1,3 +1,9 @@
 .card-product{
   margin-top: 20px;
 }
+
+img {
+  height: 150px;
+  width: 190px;
+  object-fit: contain;
+}

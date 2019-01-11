@@ -1,6 +1,8 @@
-.sup-img{
-  max-height: 200px;
-  margin:auto;
+.sup-img {
+  height: 300px;
+  width: 190px;
+  margin: auto;
+  object-fit: contain;
 }
 /*Welcome Section*/
 #welcome {
