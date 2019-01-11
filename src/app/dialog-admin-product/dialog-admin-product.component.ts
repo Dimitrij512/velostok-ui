@@ -44,7 +44,7 @@ export class DialogAdminProductComponent implements OnInit {
   submitProductForm() {
     let field = this.productForm.value;
 
-    if(this.isStringMatch(field.image, 'drive.google.com')) {
+    if (this.isStringMatch(field.image, 'drive.google.com')) {
       field.image = GOOGLE_DISK_URL + this.retrieveGoogleID(field.image);
       field.largeImage = GOOGLE_DISK_URL + this.retrieveGoogleID(field.largeImage);
     }
@@ -69,7 +69,7 @@ export class DialogAdminProductComponent implements OnInit {
   }
 
   retrieveGoogleID(input: string): string {
-    return input.split('?id=').pop();
+    return input.split('id=').pop();
   }
 
   createOrUpdateProduct(product: Product) {
@@ -103,6 +103,5 @@ export class DialogAdminProductComponent implements OnInit {
   public handlePromiseError(err): void {
     alert('Щось пішло не так, повторіть спробу пізніше : ' + err.status);
   }
-
 
 }
