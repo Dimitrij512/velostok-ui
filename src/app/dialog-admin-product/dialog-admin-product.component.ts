@@ -29,7 +29,6 @@ export class DialogAdminProductComponent implements OnInit {
   ngOnInit() {}
 
   createProductForm(data: any) {
-    console.log(data);
     this.productForm = this.fb.group({
       name: [data.name, [Validators.required, Validators.maxLength(50)]],
       title: [data.title, [Validators.required]],
