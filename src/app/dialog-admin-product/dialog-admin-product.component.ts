@@ -5,6 +5,7 @@ import {ProductService} from "../services/product-service";
 import {Product} from "../models/Product";
 import {CategoryService} from "../services/category-service";
 import {Category} from "../models/Category";
+import {GOOGLE_DISK_URL} from "../constants/projectsConstants";
 
 @Component({
   selector: 'app-dialog-admin-product',
@@ -25,8 +26,7 @@ export class DialogAdminProductComponent implements OnInit {
     this.createProductForm(data);
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   createProductForm(data: any) {
     console.log(data);
@@ -44,7 +44,11 @@ export class DialogAdminProductComponent implements OnInit {
 
   submitProductForm() {
     let field = this.productForm.value;
-    console.log(field);
+
+    if(this.isStringMatch(field.image, 'drive.google.com')) {
+      field.image = GOOGLE_DISK_URL + this.retrieveGoogleID(field.image);
+      field.largeImage = GOOGLE_DISK_URL + this.retrieveGoogleID(field.largeImage);
+    }
 
     let product = new Product();
     product.id = this.data.id;
@@ -59,6 +63,14 @@ export class DialogAdminProductComponent implements OnInit {
     product.available = field.available;
 
     this.createOrUpdateProduct(product);
+  }
+
+  isStringMatch(str: string, str_to_match: string): boolean {
+    return (str.indexOf(str_to_match) > -1);
+  }
+
+  retrieveGoogleID(input: string): string {
+    return input.split('?id=').pop();
   }
 
   createOrUpdateProduct(product: Product) {
