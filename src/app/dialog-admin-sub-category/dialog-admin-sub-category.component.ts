@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CategoryService} from "../services/category-service";
 import {SubCategoryService} from "../services/subCategory-service";
 import {SubCategory} from "../models/SubCategory";
+import {GOOGLE_DISK_URL} from "../constants/projectsConstants";
 
 @Component({
   selector: 'app-dialog-admin-sub-category',
@@ -42,6 +43,10 @@ export class DialogAdminSubCategoryComponent implements OnInit {
   submitSubCategoryForm() {
     let field = this.categoryForm.value;
 
+    if (this.isStringMatch(field.image, 'drive.google.com')) {
+      field.image = GOOGLE_DISK_URL + this.retrieveGoogleID(field.image);
+    }
+
     let category = new SubCategory();
     category.id = this.data.id;
     category.categoryName = field.categoryName;
@@ -51,6 +56,14 @@ export class DialogAdminSubCategoryComponent implements OnInit {
     category.image = field.image;
 
     this.createOrUpdateSubCategory(category);
+  }
+
+  isStringMatch(str: string, str_to_match: string): boolean {
+    return (str.indexOf(str_to_match) > -1);
+  }
+
+  retrieveGoogleID(input: string): string {
+    return input.split('id=').pop();
   }
 
   createOrUpdateSubCategory(subCategory: SubCategory) {

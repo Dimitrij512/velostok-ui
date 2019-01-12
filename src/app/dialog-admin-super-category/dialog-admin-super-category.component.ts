@@ -3,6 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef, MatSnackBar} from "@angular/material";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {SuperCategoryService} from "../services/super-category-service";
 import {SuperCategory} from "../models/SuperCategory";
+import {GOOGLE_DISK_URL} from "../constants/projectsConstants";
 
 @Component({
   selector: 'app-dialog-admin-super-category',
@@ -34,6 +35,10 @@ export class DialogAdminSuperCategoryComponent implements OnInit {
   submitCategoryForm() {
     let field = this.categoryForm.value;
 
+    if (this.isStringMatch(field.image, 'drive.google.com')) {
+      field.image = GOOGLE_DISK_URL + this.retrieveGoogleID(field.image);
+    }
+
     let category = new SuperCategory();
     category.id = this.data.id;
     category.name = field.name;
@@ -42,6 +47,15 @@ export class DialogAdminSuperCategoryComponent implements OnInit {
 
     this.createOrUpdateCategory(category);
   }
+
+  isStringMatch(str: string, str_to_match: string): boolean {
+    return (str.indexOf(str_to_match) > -1);
+  }
+
+  retrieveGoogleID(input: string): string {
+    return input.split('id=').pop();
+  }
+
 
   createOrUpdateCategory(category: SuperCategory) {
     if (category.id === undefined) {

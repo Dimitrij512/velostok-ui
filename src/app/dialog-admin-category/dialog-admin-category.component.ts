@@ -5,6 +5,7 @@ import {Category} from "../models/Category";
 import {CategoryService} from "../services/category-service";
 import {SuperCategoryService} from "../services/super-category-service";
 import {SuperCategory} from "../models/SuperCategory";
+import {GOOGLE_DISK_URL} from "../constants/projectsConstants";
 
 @Component({
   selector: 'app-dialog-admin-category',
@@ -42,6 +43,10 @@ export class DialogAdminCategoryComponent implements OnInit {
   submitCategoryForm() {
     let field = this.categoryForm.value;
 
+    if (this.isStringMatch(field.image, 'drive.google.com')) {
+      field.image = GOOGLE_DISK_URL + this.retrieveGoogleID(field.image);
+    }
+
     let category = new Category();
     category.id = this.data.id;
     category.superCategoryName = field.superCategoryName;
@@ -51,6 +56,14 @@ export class DialogAdminCategoryComponent implements OnInit {
     category.image = field.image;
 
     this.createOrUpdateCategory(category);
+  }
+
+  isStringMatch(str: string, str_to_match: string): boolean {
+    return (str.indexOf(str_to_match) > -1);
+  }
+
+  retrieveGoogleID(input: string): string {
+    return input.split('id=').pop();
   }
 
   createOrUpdateCategory(category: Category) {
