@@ -81,6 +81,10 @@ img {
   object-fit: contain;
 }
 
+img.loading {
+  background: transparent url(/./assets/spinerImage.gif) no-repeat scroll center center;
+}
+
 .index-content .card img {
   width: 100%;
   border-top-left-radius: 4px;
