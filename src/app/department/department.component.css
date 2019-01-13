@@ -128,3 +128,11 @@ img.loading {
 .cart-button {
   float: left;
 }
+
+ .pagination /deep/ .ngx-pagination .current {
+   background: darkgray;
+ }
+
+.pagination /deep/ pagination-template {
+  margin:auto;
+}

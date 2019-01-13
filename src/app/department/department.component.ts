@@ -29,6 +29,7 @@ export class DepartmentComponent implements OnInit {
   filter:string;
   loaded:boolean;
   currency:number;
+  p: number = 1;
 
   constructor(private readonly route: ActivatedRoute,
               private readonly http: HttpClient,
@@ -85,7 +86,6 @@ export class DepartmentComponent implements OnInit {
     this.key = key;
     this.reverse = !this.reverse;
   }
-  p: number = 1;
 
   messageIsAvailable(status: boolean){
     return status == true ? 'в наявності' : '';

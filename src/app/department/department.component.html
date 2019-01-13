@@ -1,75 +1,3 @@
-<!--
-<section class="text-center my-5">
-
-  <h2 class="h1-responsive font-weight-bold text-center my-5">Категорія : {{nameOfCategory}}</h2>
-  <p class="grey-text text-center w-responsive mx-auto mb-5">Наші найкращі {{nameOfCategory}} для Вас </p>
-
-  <mat-form-field>
-    <input matInput type="text" name="search" [(ngModel)]="filter" placeholder="Фільтр">
-  </mat-form-field>
-
-  <div class="button-row">
-    <button mat-icon-button>
-      <mat-icon (click)="sort('name')">sort_by_alpha</mat-icon>
-    </button>
-    <button mat-icon-button>
-      <mat-icon (click)="sort('price')">monetization_on</mat-icon>
-    </button>
-    <button mat-icon-button>
-      <mat-icon (click)="sort('available')">remove_red_eye</mat-icon>
-    </button>
-  </div>
-
-
-  <div *ngIf="loaded; then prod else loading"></div>
-
-  <ng-template #loading>
-    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-  </ng-template>
-
-  <ng-template #prod>
-  <div class="row">
-    <div class="col-lg-3 col-md-6 mb-lg-0 mb-4 card-product"
-         *ngFor="let entry of response | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: 48, currentPage: p }; let i = index">
-      <div class="card align-items-center">
-        <div class="view overlay card-img-wrap" (click)="getProduct(entry.id)">
-          <img src={{entry.image}} class="card-img-top" alt="">
-          <a>
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-        <div class="card-body text-center">
-          <a (click)="getProduct(entry.id)" class="grey-text">
-            <h5>{{truncate(entry.name)}}</h5>
-          </a>
-          <h5>
-            <strong>
-              <a (click)="getProduct(entry.id)" class="dark-grey-text">{{truncate(entry.title)}}
-              </a>
-            </strong>
-          </h5>
-          <h5 class="font-weight-bold blue-text">
-            <strong>{{roundingNumber(entry.price, currency)}} грн.</strong>
-          </h5>
-          <button [disabled]="!entry.available" mat-icon-button color="primary"
-                  class="centered"
-                  color="primary"
-                  (click)="addToCart(entry)">
-            <mat-icon>shopping_cart</mat-icon>
-          </button>
-          <span class="badge badge-pill theme-green">{{messageIsAvailable(entry.available)}}</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="paginator">
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
-  </div>
-  </ng-template>
-</section>
-
-
--->
 <section class="text-center my-5">
   <h2 class="h1-responsive font-weight-bold text-center my-5">Категорія : {{nameOfCategory}}</h2>
   <mat-form-field>
@@ -121,6 +49,8 @@
   </div>
 
 </section>
-<!--<div class="paginator">
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
-</div>-->
+
+<div class="text-center">
+  <pagination-controls (pageChange)="p = $event" class="pagination hide-page-numbers"></pagination-controls>
+</div>
+
