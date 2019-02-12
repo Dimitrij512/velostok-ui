@@ -18,7 +18,7 @@ interface DepartmentData {
 @Component({
   selector: 'app-department',
   templateUrl: './department.component.html',
-  styleUrls: ['./department.component.css'],
+  styleUrls: ['./department.component.scss'],
   providers:[CategoryService]
 })
 export class DepartmentComponent implements OnInit {
@@ -64,10 +64,10 @@ export class DepartmentComponent implements OnInit {
   }
 
   truncate(str: string) {
-    if (str.length < 20) {
+    if (str.length < 23) {
       return str;
     } else {
-      return str.substr(0, 12) + "...";
+      return str.substr(0, 21) + "...";
     }
   }
 
