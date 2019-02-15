@@ -8,7 +8,7 @@ import {SuperCategory} from "../models/SuperCategory";
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.css'],
+  styleUrls: ['./categories.component.scss'],
   providers: [CategoryService, SuperCategoryService],
 })
 export class CategoriesComponent implements OnInit {

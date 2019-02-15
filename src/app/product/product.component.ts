@@ -24,6 +24,7 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.currency = 28.00
     this.http.get<Currency>(CURRENCY_URL).subscribe(currency =>{
         this.currency = currency.USD_UAH.val;
     });

@@ -10,7 +10,7 @@
   </ng-template>
 
   <ng-template #catego>
-    <div class="row">
+    <div class="row margin-left-right">
       <div class="col-lg-3 col-md-6 mb-lg-0 mb-4 card-product" *ngFor="let category of categories">
         <div class="card align-items-center">
           <div class="view overlay" (click)="findAllProductsByCategoryId(category.id)">
@@ -20,9 +20,7 @@
             </a>
           </div>
           <div class="card-body text-center">
-            <a (click)="findAllProductsByCategoryId(category.id)" class="grey-text">
-              <h5>{{truncate(category.name)}}</h5>
-            </a>
+            <a (click)="findAllProductsByCategoryId(category.id)" class="grey-text"></a>
             <h5>
               <strong>
                 <a (click)="findAllProductsByCategoryId(category.id)"
